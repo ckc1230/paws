@@ -1,7 +1,7 @@
 {
   "name": "pickapet",
   "version": "1.0.0",
-  "description": "",
+  "description": "We are developing a website to serve users who are looking to either adopt a pet or put their pet up for adoption.",
   "main": "seed.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,5 +23,6 @@
     "express": "^4.14.0",
     "mongoose": "^4.6.1",
     "nodemon": "^1.10.2"
-  }
+  },
+  "keywords": []
 }
