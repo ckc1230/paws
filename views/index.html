@@ -8,7 +8,7 @@
 
     <!-- STYLESHEETS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -16,12 +16,12 @@
     <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
-    <script src="../public/scripts/app.js"></script>
+    <script src="./scripts/app.js"></script>
   </head>
   <body>
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome to Pick A Pet</h1>
+        <h1>Pick A Pet</h1>
         <p>The definitive source for finding your new best friend</p>
       </div>
     </div>
@@ -47,24 +47,17 @@
                 <!-- BEGIN PET INTERNAL ROW -->
                   <div class='row'>
                     <div class="col-md-3 col-xs-12 thumbnail pet-image">
-                      <img src="images/800x800.png" alt="pet image">
+                      <img src={{picture}}>
+
                     </div>
 
                     <div class="col-md-9 col-xs-12">
                       <ul class="list-group">
                         <li class="list-group-item">
-                          <h4 class='inline-header'>Hi, my name is...</h4>
-                          <span class='album-name'>{{name}}</span>
-                          <span class='input-album-name' style='display:none;'>
-                            <input id="albumName" name="albumName" type="text" value="{{name}}">
-                          </span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Artist Name:</h4>
-                          <span class='artist-name'>{{artistName}}</span>
-                          <span class='input-artist-name' style='display:none;'>
-                            <input id="artistName" name="artistName" type="text" value="{{artistName}}">
+                          <h4 class='inline-header'>{{name}}, {{age}} {{gender}} {{owner.location}}</h4>
+                          <span class='pet-description'>Description goes here</span>
+                          <span class='input-pet-name' style='display:none;'>
+                            <input id="petName" name="petName" type="text" value="{{name}}">
                           </span>
                         </li>
 
@@ -72,13 +65,12 @@
                     </div>
 
                   </div>
-                  <!-- end of album internal row -->
+                  <!-- end of pet internal row -->
 
                   <div class='panel-footer'>
                     <div class='panel-footer'>
-                      <button class='btn btn-primary add-song'>Add Song</button>
-                      <button class='btn btn-primary delete-album'>Delete Album</button>
-                      <button class='btn btn-primary edit-album'>Edit Album</button>
+                      <button class='btn btn-primary delete-pet'>Delete Pet</button>
+                      <button class='btn btn-primary edit-pet'>Edit Pet</button>
                       <button class='btn btn-primary save-changes' style='display:none;'>Save Changes</button>
                     </div>
 

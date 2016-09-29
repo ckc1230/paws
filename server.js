@@ -22,18 +22,36 @@ app.get('/profile', function profilePage(req, res) {
 
 //JSON API endpoints
 
+// Get all owners
+app.get('/api/owners', function index(req, res) {
+	db.Owner.find({}, function(err, allOwners) {
+		if (err) {throw err;};
+		res.json(allOwners);
+	});
+});
+
+// Get one owner
+app.get('/api/owners/:id', function show(req, res) {
+	var ownerId = req.params.id;
+	db.Owner.findById(ownerId, function(err, owner) {
+		if (err) {throw err;};
+		res.json(owner);
+	});
+});
+
 // Get All Pets
 app.get('/api/pets', function index(req, res) {
-	db.Pet.find({}, function(err, allPets) {
-		if (err) {throw err;};
-		res.json(allPets);
+	db.Pet.find().populate('owner')
+		.exec(function(err, pets) {
+			if (err) { return console.log("index error: " + err); }
+			res.json(pets);
 	});
 });
 
 
 // Get One Pet
 app.get('/api/pets/:id', function show(req, res) {
-	var petId = req.params.id
+	var petId = req.params.id;
 	db.Pet.findById(petId, function(err, pet) {
 		if (err) {throw err;};
 		res.json(pet);
@@ -60,7 +78,7 @@ app.delete('/api/pets/:id', function destroy(req,res) {
 
 // Update pet
 app.put('/api/pets/:id', function update(req,res) {
-	var updatedPet = req.body
+	var updatedPet = req.body;
 	var petId = req.params.id;
 	db.Pet.findOneAndUpdate(petId, updatedPet, function(err,foundPet) {
 		if (err) {throw err};

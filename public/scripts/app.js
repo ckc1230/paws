@@ -1,17 +1,14 @@
 $(document).ready(function() {
 	console.log("here come the kittens");
-	
-	var allPets = []
-	var source = $('#pet-template').html();
-	var template = Handlebars.compile(source);
-	
+
+
 
 
 
 //get all pets as site turns on
 	$.get('/api/pets').success(function(pets) {
-		pets.forEach(function() {
-			render();
+		pets.forEach(function(pet) {
+			renderPet(pet);
 		});
 	});
 
@@ -27,32 +24,27 @@ $(document).ready(function() {
 			success: newPetSuccess,
 			error: newPetError
 		});
-		
+
 	});
 
-	$('#PetTarget').on('click', '.deleteBtn', function() {
+	$('#pets').on('click', '.deleteBtn', function() {
 		$.ajax({
 			method: 'DELETE',
 			url: '/api/pets/' + $(this).attr('data-id'),
 			success: deleteSuccess,
 			error: deleteError
 		});
-		
+
 	});
 
 
 })
 
 
-
-
-
-
-
-
-
-function render() {
-	$('#pet-target').empty();
-	var petHtml = template({ pets: allPets });
-	$('#pet-target').append(petHtml);
+function renderPet(pet) {
+	console.log('rendering pet', pet);
+	var petHtml = $('#pet-template').html();
+	var petsTemplate = Handlebars.compile(petHtml);
+	var html = petsTemplate(pet);
+	$('#pets').prepend(html);
 }
