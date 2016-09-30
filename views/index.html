@@ -98,31 +98,97 @@
           </div>
           <div class="modal-body">
             <fieldset class='form-horizontal'>
-
-            <!-- Text input-->
+            <h3>Pet Information</h3>
+            <!-- Pet name input-->
             <div class="form-group">
               <label class="col-md-4 control-label" for="petName">Pet Name</label>
               <div class="col-md-4">
-              <input id="songName" name="songName" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="petName" name="petName" type="text" placeholder="Squeaky McSqueaks" class="form-control input-md" required="">
 
               </div>
             </div>
 
-            <!-- Text input-->
+            <!-- Pet type input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="type">Type of Animal</label>
+              <label class="col-md-4 control-label" for="petType">Pet Type</label>
               <div class="col-md-4">
-              <input id="trackNumber" name="trackNumber" type="text" placeholder="" class="form-control input-md">
+              <select id="petType" name="petType" class="form-control input-md">
+                <option value="dog">dog</option>
+                <option value="cat">cat</option>
+                <option value="bird">bird</option>
+                <option value="other">other</option>
+              </select>
 
               </div>
             </div>
+
+            <!-- Pet age input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petAge">Age</label>
+              <div class="col-md-4">
+              <input id="petAge" name="petAge" type="text" placeholder="3 months" class="form-control input-md" required="">
+
+              </div>
+            </div>
+
+            <!-- Pet gender input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petGender">Gender</label>
+              <div class="col-md-4">
+              <label>
+              <input id="petGenderM" type="radio" name="petGender" value="male" class=""> Male </label><label><input id="petGenderF" type="radio" name="petGender" value="female" class=""> Female</label>
+              </div>
+            </div>
+
+            <!-- Pet fixed/vaccination input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petMedical">Medical</label>
+              <div class="col-md-4">
+              <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed
+              <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> Vaccinations
+              </div>
+            </div>
+
+            <!-- Pet image input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petPicture">Image</label>
+              <div class="col-md-4">
+              <input id="petPicture" name="petPicture" type="text" placeholder="http://image.jpg" class="form-control input-md" required="">
+              </div>
+            </div>
+
+            <h3>Owner Information</h3>
+            <!-- Owner name input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="ownerName">Name</label>
+              <div class="col-md-4">
+              <input id="ownerName" name="ownerName" type="text" placeholder="John Smith" class="form-control input-md" required="">
+              </div>
+            </div>
+
+            <!-- Owner location input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="ownerLocation">Location</label>
+              <div class="col-md-4">
+              <input id="ownerLocation" name="ownerLocation" type="text" placeholder="San Francisco, CA" class="form-control input-md" required="">
+              </div>
+            </div>
+
+            <!-- Owner email input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="ownerEmail">Email</label>
+              <div class="col-md-4">
+              <input id="ownerEmail" name="ownerEmail" type="text" placeholder="mail@example.com" class="form-control input-md" required="">
+              </div>
+            </div>
+
 
             </fieldset>
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveSong">Save changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="saveSong">Submit</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
