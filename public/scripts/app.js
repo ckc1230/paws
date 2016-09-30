@@ -30,8 +30,6 @@ $(document).ready(function() {
     $petRow.find('.edit-pet').toggle();
     $petRow.find('.save-changes').toggle();
   
-
-
 	  var petData = {
 	    name: $petRow.find('input[name="edit-pet-name"]').val(),
 	    age: $petRow.find('input[name="edit-pet-age"]').val(),
@@ -46,8 +44,16 @@ $(document).ready(function() {
     	url: '/api/pets/' + petId,
     	data: petData,
     	success: function(data) {
-     		console.log(data);
-     		reRenderPet(data);
+     		$.get('/api/pets').success(function(pets) {
+					pets.forEach(function(pet) {
+					renderPet(pet);
+					});
+				});
+
+     		// console.log(data);
+
+
+     		// renderPet(data);
     }
 	})
 

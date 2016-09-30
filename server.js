@@ -59,13 +59,35 @@ app.get('/api/pets/:id', function show(req, res) {
 });
 
 
-// Create pet
-app.post('/api/pets', function create(req, res) {
-	db.Pet.create(req.body, function(err, pet) {
-		if (err) {throw err;};
-		res.json(pet);
-	});
+// Create Pet
+app.post('/api/pets', function(req, res) {
+	console.log(req.body.owner)
+	db.Owner.find({name: req.body.owner}, function(err,owner) {
+		if (err) {throw err};
+		console.log(owner)
+		var ourOwner = owner[0]._id
+		console.log(req.body);
+		console.log(ourOwner)
+		var newPet = req.body;
+		newPet.owner = ourOwner;
+		console.log(newPet);
+		db.Pet.create(newPet, function(err, pet) {
+			if (err) { console.log('so close');}
+			res.json(pet);
+			pet.save()
+		})
+
+	})
 });
+
+// Create Owner
+app.post('/api/owners', function(req,res) {
+	db.Owner.create(req.body, function(err, owner) {
+		if (err) { console.log('nice try');}
+		console.log('holy shit...');
+		res.json(owner);
+	})
+})
 
 // Delete pet
 app.delete('/api/pets/:id', function destroy(req,res) {
@@ -80,15 +102,14 @@ app.delete('/api/pets/:id', function destroy(req,res) {
 app.put('/api/pets/:id', function update(req,res) {
 	var updatedPet = req.body;
 	var petId = req.params.id;
-	console.log(petId);
+	console.log("petId found: " + petId);
 	db.Pet.findOneAndUpdate({_id: petId}, updatedPet, function(err,foundPet) {
 		if (err) {throw err};
+		console.log(foundPet);
 		foundPet.save();
 		res.json(foundPet);
 	});
 });
-
-
 
 //server
 app.listen(process.env.PORT || 8000, function() {
