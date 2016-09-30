@@ -22,7 +22,7 @@ petList.push({
 	fixed: true,
 	gender: "female",
 	picture: "https://scontent-yyz1-1.cdninstagram.com/t51.2885-15/e35/14280350_175479136192510_3532240967484571648_n.jpg?ig_cache_key=MTM0NjAwODgxNzc3NDk2MTcyMw%3D%3D.2",
-	owner: "Ilias"
+	owner: "ilias"
 })
 
 petList.push({
@@ -33,7 +33,7 @@ petList.push({
 	fixed: true,
 	gender: "female",
 	picture: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/11949497_10153072748752727_3155146891262570335_n.jpg?oh=764c714d8d3d33d10ea070c1ea3a9466&oe=5875EFAF',
-	owner: "Ilias"
+	owner: "ilias"
 })
 
 petList.push({
@@ -44,7 +44,7 @@ petList.push({
 	fixed: true,
 	gender: "female",
 	picture: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/1238209_10201027775790085_100547095_n.jpg?oh=40f8930ac8693e44697d0b478a0a4a7c&oe=5868CE72',
-	owner: "Ilias"
+	owner: "ilias"
 })
 
 petList.push({
@@ -55,7 +55,7 @@ petList.push({
 	fixed: true,
 	gender: "male",
 	picture: '',
-	owner: "Ilias"
+	owner: "ilias"
 })
 
 petList.push({
@@ -66,7 +66,7 @@ petList.push({
 	fixed: true,
 	gender: "female",
 	picture: '',
-	owner: "Ilias"
+	owner: "ilias"
 })
 
 petList.push({
@@ -77,7 +77,7 @@ petList.push({
   fixed: true,
   gender: "male",
   picture: "http://petful.supercopyeditors.netdna-cdn.com/wp-content/uploads/2016/02/14032864382_0566a75778_c-750x501.jpg",
-  owner: "Ilias"
+  owner: "ilias"
 })
 
 petList.push({
@@ -248,7 +248,7 @@ petList.push({
 var ownerList = [];
 
 ownerList.push({
-	name: 'Ilias',
+	name: 'ilias',
 	email: 'Ilias@generalassemb.ly',
 	location: '15 Lomardi Street',
 });
