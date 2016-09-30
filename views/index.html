@@ -16,13 +16,14 @@
     <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
-    <script src="./scripts/app.js"></script>
+    <script src="./scripts/wipapp.js"></script>
   </head>
   <body>
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome to Pick A Pet</h1>
-        <p>The definitive source for finding your new best friend</p>
+        <h1>Pick A Pet</h1>
+        <p>Find your new best friend</p>
+        <button type="button" class="addPet">Add A Pet</button>
       </div>
     </div>
 
@@ -47,24 +48,18 @@
                 <!-- BEGIN PET INTERNAL ROW -->
                   <div class='row'>
                     <div class="col-md-3 col-xs-12 thumbnail pet-image">
-                      <img src="images/800x800.png" alt="pet image">
+                      <img src={{picture}}>
+
                     </div>
 
                     <div class="col-md-9 col-xs-12">
                       <ul class="list-group">
                         <li class="list-group-item">
-                          <h4 class='inline-header'>Hi, my name is...</h4>
-                          <span class='album-name'>{{name}}</span>
-                          <span class='input-album-name' style='display:none;'>
-                            <input id="albumName" name="albumName" type="text" value="{{name}}">
-                          </span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Artist Name:</h4>
-                          <span class='artist-name'>{{artistName}}</span>
-                          <span class='input-artist-name' style='display:none;'>
-                            <input id="artistName" name="artistName" type="text" value="{{artistName}}">
+                          <h4 class='inline-header'>{{name}}, {{age}} {{gender}} <span style="font-size: 12px">{{owner.location}}</span></h4>
+                          <span class='pet-description'>Description goes here</span></br>
+                          <span>Owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
+                          <span class='input-pet-name' style='display:none;'>
+                            <input id="petName" name="petName" type="text" value="{{name}}">
                           </span>
                         </li>
 
@@ -72,13 +67,12 @@
                     </div>
 
                   </div>
-                  <!-- end of album internal row -->
+                  <!-- end of pet internal row -->
 
                   <div class='panel-footer'>
                     <div class='panel-footer'>
-                      <button class='btn btn-primary add-song'>Add Song</button>
-                      <button class='btn btn-primary delete-album'>Delete Album</button>
-                      <button class='btn btn-primary edit-album'>Edit Album</button>
+                      <button class='btn btn-primary delete-pet'>Delete Pet</button>
+                      <button class='btn btn-primary edit-pet'>Edit Pet</button>
                       <button class='btn btn-primary save-changes' style='display:none;'>Save Changes</button>
                     </div>
 
