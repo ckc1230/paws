@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PICK-A-PET</title>
+
+    <!-- STYLESHEETS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="./scripts/app.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Pick A Pet</h1>
+        <p>The definitive source for finding your new best friend</p>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <section class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Pets</h2>
+        </div>
+      </div>
+      <!-- PETS -->
+      <div id='pets'>
+        <script id='pet-template' type='text/x-handlebars-template'>
+          <!-- ONE PET -->
+          <div class="row pet" data-pet-id="{{_id}}">
+
+            <div class="col-md-10 col-md-offset-1">
+              <div class="panel panel-default">
+                <div class="panel-body">
+
+
+                <!-- BEGIN PET INTERNAL ROW -->
+                  <div class='row'>
+                    <div class="col-md-3 col-xs-12 thumbnail pet-image">
+                      <img src="images/800x800.png" alt="pet image">
+                    </div>
+
+                    <div class="col-md-9 col-xs-12">
+                      <ul class="list-group">
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Hi, my name is...</h4>
+                          <span class='album-name'>{{name}}</span>
+                          <span class='input-album-name' style='display:none;'>
+                            <input id="albumName" name="albumName" type="text" value="{{name}}">
+                          </span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Artist Name:</h4>
+                          <span class='artist-name'>{{artistName}}</span>
+                          <span class='input-artist-name' style='display:none;'>
+                            <input id="artistName" name="artistName" type="text" value="{{artistName}}">
+                          </span>
+                        </li>
+
+                      </ul>
+                    </div>
+
+                  </div>
+                  <!-- end of album internal row -->
+
+                  <div class='panel-footer'>
+                    <div class='panel-footer'>
+                      <button class='btn btn-primary add-song'>Add Song</button>
+                      <button class='btn btn-primary delete-album'>Delete Album</button>
+                      <button class='btn btn-primary edit-album'>Edit Album</button>
+                      <button class='btn btn-primary save-changes' style='display:none;'>Save Changes</button>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end one album -->
+        </script>
+
+      </div>
+    </section>
+
+    <!-- begin songModal: this is not visible until you call .modal() on it -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="songModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Create Song</h4>
+          </div>
+          <div class="modal-body">
+
+            <fieldset class='form-horizontal'>
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="songName">Song Name</label>
+                <div class="col-md-4">
+                  <input id="songName" name="songName" type="text" placeholder="" class="form-control input-md" required="">
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="trackNumber">Track Number</label>
+                <div class="col-md-4">
+                  <input id="trackNumber" name="trackNumber" type="text" placeholder="" class="form-control input-md">
+                </div>
+              </div>
+            </fieldset>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveSong">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+  </body>
+</html>
