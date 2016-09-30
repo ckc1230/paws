@@ -11,7 +11,10 @@ var PetSchema = new Schema({
 	fixed: Boolean,
 	gender: String,
 	picture: String,
-	owner: [Owner.schema]
+	owner: {
+		type: Schema.Types.ObjectId,
+		ref: 'Owner'
+	}
 });
 
 var Pet = mongoose.model('Pet', PetSchema);

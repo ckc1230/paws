@@ -61,40 +61,17 @@ app.get('/api/pets/:id', function show(req, res) {
 
 // Create pet
 app.post('/api/pets', function(req, res) {
-	console.log(req.body.owner)
-	db.Owner.find({name: req.body.owner}, function(err,owner) {
-		if (err) {throw err};
-		console.log(owner)
-		var ourOwner = owner[0]._id
-		console.log(req.body);
-		console.log(ourOwner)
-		var newPet = req.body;
-		newPet.owner = ourOwner;
-		console.log(newPet);
-		db.Pet.create(newPet, function(err, pet) {
-			if (err) { console.log('so close');}
-			res.json(pet);
-			pet.save()
-		})
-
-	})
-	
-	// console.log('not dead yet');
-	// db.Pet.create(req.body, function(err, pet) {
-	//     console.log(req.body);
-	//     if (err) { console.log('error', err); }
-	    
-	//     res.json(pet);
- //  	});
+	console.log(req.body)
+	// db.Owner.create(req.body, function(err, owner) {
+	// 	if (err) {console.log('error', err)}
+	// 	res.json(owner);
+	// })
+	db.Pet.create(req.body, function(err, pet) {
+	    if (err) { console.log('error', err); }
+	    console.log(req.body);
+	    res.json(pet);
+  	});
 });
-
-app.post('/api/owners', function(req,res) {
-	db.Owner.create(req.body, function(err, owner) {
-		if (err) { console.log('nice try');}
-		console.log('holy shit...');
-		res.json(owner);
-	})
-})
 
 // Delete pet
 app.delete('/api/pets/:id', function destroy(req,res) {
