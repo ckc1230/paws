@@ -10,19 +10,25 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
 
+
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
+
     <script src="./scripts/app.js"></script>
+
   </head>
   <body>
     <div class="jumbotron">
       <div class="container">
         <h1>Pick A Pet</h1>
-        <p>The definitive source for finding your new best friend</p>
+        <p>Find your new best friend</p>
+        <button type="button" class="addPet">Add A Pet</button>
+
+
       </div>
     </div>
 
@@ -48,14 +54,27 @@
                   <div class='row'>
                     <div class="col-md-3 col-xs-12 thumbnail pet-image">
                       <img src={{picture}}>
-
                     </div>
 
                     <div class="col-md-9 col-xs-12">
                       <ul class="list-group">
                         <li class="list-group-item">
-                          <h4 class='inline-header'>{{name}}, {{age}} {{gender}} {{owner.location}}</h4>
-                          <span class='pet-description'>Description goes here</span>
+                          <h4 id="nameField" class='inline-header'>{{name}}, {{age}} {{gender}} <span style="font-size: 12px">{{owner.location}}</span></h4>
+
+                          <div hidden="true" class="edit-form">
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-name">Name</label>
+                            <input class="form-control input-md" type="text" name="edit-pet-name" value="{{name}}" id="editNameField">
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-age">Age</label>
+                            <input class="form-control input-md" type="text" name="edit-pet-location" value="{{age}}" id="editAgeField">
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-location">Location</label>
+                            <input class="form-control input-md" type="text" name="edit-pet-location" value="{{owner.location}}" id="editLocationField"> <br>
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-description">Description</label>
+                            <textarea class="form-control input-md" id="editDescriptionField"> </textarea>
+                          </div>
+
+
+                          <span class='pet-description'>Description goes here</span></br>
+                          <span>Owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
                           <span class='input-pet-name' style='display:none;'>
                             <input id="petName" name="petName" type="text" value="{{name}}">
                           </span>
@@ -67,12 +86,12 @@
                   </div>
                   <!-- end of pet internal row -->
 
-                  <div class='panel-footer'>
-                    <div class='panel-footer'>
+<!--             
+                    <div class='panel-footer'> -->
                       <button class='btn btn-primary delete-pet'>Delete Pet</button>
                       <button class='btn btn-primary edit-pet'>Edit Pet</button>
                       <button class='btn btn-primary save-changes' style='display:none;'>Save Changes</button>
-                    </div>
+         <!--            </div> -->
 
                   </div>
 
@@ -87,37 +106,106 @@
     </section>
 
     <!-- begin songModal: this is not visible until you call .modal() on it -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="songModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="songModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Create Song</h4>
+            <h4 class="modal-title">Post A Pet</h4>
           </div>
           <div class="modal-body">
-
             <fieldset class='form-horizontal'>
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="songName">Song Name</label>
-                <div class="col-md-4">
-                  <input id="songName" name="songName" type="text" placeholder="" class="form-control input-md" required="">
-                </div>
-              </div>
+            <h3>Pet Information</h3>
+            <!-- Pet name input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petName">Pet Name</label>
+              <div class="col-md-4">
+              <input id="petName" name="petName" type="text" placeholder="Squeaky McSqueaks" class="form-control input-md" required="">
 
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="trackNumber">Track Number</label>
-                <div class="col-md-4">
-                  <input id="trackNumber" name="trackNumber" type="text" placeholder="" class="form-control input-md">
-                </div>
               </div>
+            </div>
+
+            <!-- Pet type input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petType">Pet Type</label>
+              <div class="col-md-4">
+              <select id="petType" name="petType" class="form-control input-md">
+                <option value="dog">dog</option>
+                <option value="cat">cat</option>
+                <option value="bird">bird</option>
+                <option value="other">other</option>
+              </select>
+
+              </div>
+            </div>
+
+            <!-- Pet age input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petAge">Age</label>
+              <div class="col-md-4">
+              <input id="petAge" name="petAge" type="text" placeholder="3 months" class="form-control input-md" required="">
+
+              </div>
+            </div>
+
+            <!-- Pet gender input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petGender">Gender</label>
+              <div class="col-md-4">
+              <label>
+              <input id="petGenderM" type="radio" name="petGender" value="male" class=""> Male </label><label><input id="petGenderF" type="radio" name="petGender" value="female" class=""> Female</label>
+              </div>
+            </div>
+
+            <!-- Pet fixed/vaccination input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petMedical">Medical</label>
+              <div class="col-md-4">
+              <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed
+              <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> Vaccinations
+              </div>
+            </div>
+
+            <!-- Pet image input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petPicture">Image</label>
+              <div class="col-md-4">
+              <input id="petPicture" name="petPicture" type="text" placeholder="http://image.jpg" class="form-control input-md" required="">
+              </div>
+            </div>
+
+            <h3>Owner Information</h3>
+            <!-- Owner name input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="ownerName">Name</label>
+              <div class="col-md-4">
+              <input id="ownerName" name="ownerName" type="text" placeholder="John Smith" class="form-control input-md" required="">
+              </div>
+            </div>
+
+            <!-- Owner location input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="ownerLocation">Location</label>
+              <div class="col-md-4">
+              <input id="ownerLocation" name="ownerLocation" type="text" placeholder="San Francisco, CA" class="form-control input-md" required="">
+              </div>
+            </div>
+
+            <!-- Owner email input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="ownerEmail">Email</label>
+              <div class="col-md-4">
+              <input id="ownerEmail" name="ownerEmail" type="text" placeholder="mail@example.com" class="form-control input-md" required="">
+              </div>
+            </div>
+
+
             </fieldset>
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveSong">Save changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="saveSong">Submit</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

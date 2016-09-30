@@ -80,7 +80,8 @@ app.delete('/api/pets/:id', function destroy(req,res) {
 app.put('/api/pets/:id', function update(req,res) {
 	var updatedPet = req.body;
 	var petId = req.params.id;
-	db.Pet.findOneAndUpdate(petId, updatedPet, function(err,foundPet) {
+	console.log(petId);
+	db.Pet.findOneAndUpdate({_id: petId}, updatedPet, function(err,foundPet) {
 		if (err) {throw err};
 		foundPet.save();
 		res.json(foundPet);
