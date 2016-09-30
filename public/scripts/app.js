@@ -19,9 +19,6 @@ $(document).ready(function() {
 	console.log("here come the kittens");
 
 
-
-
-
 //get all pets as site turns on
 	$.get('/api/pets').success(function(pets) {
 		pets.forEach(function(pet) {
@@ -67,22 +64,46 @@ $(document).ready(function() {
 
 	});
 
-	$('#pets').on('click', '.deleteBtn', function() {
+	// CLICK TO DELETE PET
+	$('#pets').on('click', '.delete-pet', function(e) {
+		var id = $(this).parents('.pet').data('pet-id');
+		console.log('id', id);
 		$.ajax({
 			method: 'DELETE',
-			url: '/api/pets/' + $(this).attr('data-id'),
-			success: deleteSuccess,
-			error: deleteError
+			url: '/api/pets/' + id,
+			success: function() {
+				$('div[data-pet-id="' + id + '"]').remove();
+			}
 		});
+	});
 
+	// CLICK TO OPEN HAMBURGER MENU
+	$('.icon').on('click', function() {
+		var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
 	});
 	$('.addPet').on('click', function(e) {
 	    e.preventDefault();
 	    (console.log("I'm A Button! YAAAYYY!"));
 	    $('#songModal').modal();
 
+<<<<<<< HEAD
 	})
 	
+=======
+	$('.addPet').on('click', function(e) {
+	    e.preventDefault();
+	    (console.log("I'm A Button! YAAAYYY!"));
+	    $('#songModal').modal();
+
+	})
+
+
+>>>>>>> c22c59c4e3c883141261a4683ec699453f496223
 })
 
 
