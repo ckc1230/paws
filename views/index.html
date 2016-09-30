@@ -22,7 +22,8 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Pick A Pet</h1>
-        <p>The definitive source for finding your new best friend</p>
+        <p>Find your new best friend</p>
+        <button type="button" class="addPet">Add A Pet</button>
       </div>
     </div>
 
@@ -54,8 +55,9 @@
                     <div class="col-md-9 col-xs-12">
                       <ul class="list-group">
                         <li class="list-group-item">
-                          <h4 class='inline-header'>{{name}}, {{age}} {{gender}} {{owner.location}}</h4>
-                          <span class='pet-description'>Description goes here</span>
+                          <h4 class='inline-header'>{{name}}, {{age}} {{gender}} <span style="font-size: 12px">{{owner.location}}</span></h4>
+                          <span class='pet-description'>Description goes here</span></br>
+                          <span>Owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
                           <span class='input-pet-name' style='display:none;'>
                             <input id="petName" name="petName" type="text" value="{{name}}">
                           </span>
@@ -87,31 +89,34 @@
     </section>
 
     <!-- begin songModal: this is not visible until you call .modal() on it -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="songModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="songModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Create Song</h4>
+            <h4 class="modal-title">Post A Pet</h4>
           </div>
           <div class="modal-body">
-
             <fieldset class='form-horizontal'>
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="songName">Song Name</label>
-                <div class="col-md-4">
-                  <input id="songName" name="songName" type="text" placeholder="" class="form-control input-md" required="">
-                </div>
-              </div>
 
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="trackNumber">Track Number</label>
-                <div class="col-md-4">
-                  <input id="trackNumber" name="trackNumber" type="text" placeholder="" class="form-control input-md">
-                </div>
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="petName">Pet Name</label>
+              <div class="col-md-4">
+              <input id="songName" name="songName" type="text" placeholder="" class="form-control input-md" required="">
+
               </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="type">Type of Animal</label>
+              <div class="col-md-4">
+              <input id="trackNumber" name="trackNumber" type="text" placeholder="" class="form-control input-md">
+
+              </div>
+            </div>
+
             </fieldset>
 
           </div>

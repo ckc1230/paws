@@ -36,7 +36,13 @@ $(document).ready(function() {
 		});
 
 	});
+	$('.addPet').on('click', function(e) {
+	    e.preventDefault();
+	    (console.log("I'm A Button! YAAAYYY!"));
+	    $('#songModal').modal();
 
+	})
+	
 
 })
 
