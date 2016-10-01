@@ -242,7 +242,7 @@ petList.push({
   fixed: true,
   gender: 'male',
   picture: 'https://media.salon.com/2002/07/stuart_little_2.jpg',
-  owner: "Ilias"
+  owner: "ilias"
 });
 
 var ownerList = [];

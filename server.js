@@ -64,8 +64,8 @@ app.post('/api/pets', function(req, res) {
 	console.log(req.body.owner)
 	db.Owner.find({name: req.body.owner}, function(err,owner) {
 		if (err) {throw err};
-		console.log(owner)
-		var ourOwner = owner[0]._id
+		console.log(owner);
+		var ourOwner = owner[0]._id;
 		console.log(req.body);
 		console.log(ourOwner)
 		var newPet = req.body;
@@ -79,13 +79,7 @@ app.post('/api/pets', function(req, res) {
 
 	})
 	
-	// console.log('not dead yet');
-	// db.Pet.create(req.body, function(err, pet) {
-	//     console.log(req.body);
-	//     if (err) { console.log('error', err); }
-	    
-	//     res.json(pet);
- //  	});
+
 });
 
 app.post('/api/owners', function(req,res) {

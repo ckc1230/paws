@@ -9,10 +9,7 @@
     <!-- STYLESHEETS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
-<<<<<<< HEAD
-=======
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
->>>>>>> c22c59c4e3c883141261a4683ec699453f496223
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -23,12 +20,7 @@
     <script src="./scripts/app.js"></script>
   </head>
   <body>
-<<<<<<< HEAD
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Welcome to Pick A Pet</h1>
-        <p>The definitive source for finding your new best friend</p>
-=======
+
     <div id="header">
       <!-- NAVIGATION -->
       <ul class="topnav" id="myTopnav">
@@ -46,7 +38,6 @@
           <p>Find your new best friend&trade;</p>
           <button type="button" class="addPet">Add A Pet</button>
         </div>
->>>>>>> c22c59c4e3c883141261a4683ec699453f496223
       </div>
   </div>
 
@@ -95,31 +86,13 @@
                 <!-- BEGIN PET INTERNAL ROW -->
                   <div class='row'>
                     <div class="col-md-3 col-xs-12 thumbnail pet-image">
-<<<<<<< HEAD
-                      <img src="images/800x800.png" alt="pet image">
-=======
                       <img src={{picture}}>
-
->>>>>>> c22c59c4e3c883141261a4683ec699453f496223
                     </div>
 
                     <div class="col-md-9 col-xs-12">
                       <ul class="list-group">
                         <li class="list-group-item">
-<<<<<<< HEAD
-                          <h4 class='inline-header'>Hi, my name is...</h4>
-                          <span class='album-name'>{{name}}</span>
-                          <span class='input-album-name' style='display:none;'>
-                            <input id="albumName" name="albumName" type="text" value="{{name}}">
-                          </span>
-                        </li>
 
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Artist Name:</h4>
-                          <span class='artist-name'>{{artistName}}</span>
-                          <span class='input-artist-name' style='display:none;'>
-                            <input id="artistName" name="artistName" type="text" value="{{artistName}}">
-=======
                           <h4 class='inline-header'>{{name}}, {{age}} {{gender}} <span style="font-size: 12px">{{owner.location}}</span></h4>
                           <span class='pet-description'>Description goes here</span></br>
                           <span class='pet-medical'>
@@ -128,7 +101,6 @@
                           <span id="owned-by">Owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
                           <span class='input-pet-name' style='display:none;'>
                             <input id="petName" name="petName" type="text" value="{{name}}">
->>>>>>> c22c59c4e3c883141261a4683ec699453f496223
                           </span>
                         </li>
 
@@ -136,17 +108,16 @@
                     </div>
 
                   </div>
-                  <!-- end of album internal row -->
+                  <!-- end of pet internal row -->
 
                   <div class='panel-footer'>
                     <div class='panel-footer'>
-                      <button class='btn btn-primary add-song'>Add Song</button>
-                      <button class='btn btn-primary delete-album'>Delete Album</button>
-                      <button class='btn btn-primary edit-album'>Edit Album</button>
+                      <button class='btn btn-primary delete-pet'>Delete Pet</button>
+                      <button class='btn btn-primary edit-pet'>Edit Pet</button>
                       <button class='btn btn-primary save-changes' style='display:none;'>Save Changes</button>
                     </div>
-
                   </div>
+
 
                 </div>
               </div>
@@ -158,8 +129,7 @@
       </div>
     </section>
 
-<<<<<<< HEAD
-       <!-- begin songModal: this is not visible until you call .modal() on it -->
+       <!-- begin petModal: this is not visible until you call .modal() on it -->
     <div class="modal fade" tabindex="-1" role="dialog" id="choiceModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -259,30 +229,14 @@
             <h4 class="modal-title">Post A Pet</h4>
           </div>
           <div class="modal-body">
-=======
-    <!-- begin petModal: this is not visible until you call .modal() on it -->
-<div class="modal fade" tabindex="-1" role="dialog" id="songModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="btn btn-primary post-pet" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Post A Pet</h4>
-          </div>
-          <div class="modal-body">
->>>>>>> c22c59c4e3c883141261a4683ec699453f496223
+
             <fieldset class='form-horizontal'>
             <h3>Pet Information</h3>
             <!-- Pet name input-->
             <div class="form-group">
               <label class="col-md-4 control-label" for="petName">Pet Name</label>
               <div class="col-md-4">
-<<<<<<< HEAD
               <input id="newPetName" name="petName" type="text" placeholder="Squeaky McSqueaks" class="form-control input-md" required="">
-
-=======
-              <input id="petName" name="petName" type="text" placeholder="Squeaky McSqueaks" class="form-control input-md" required="">
->>>>>>> c22c59c4e3c883141261a4683ec699453f496223
-
               </div>
             </div>
 
@@ -313,21 +267,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="petGender">Gender</label>
               <div class="col-md-4">
-<<<<<<< HEAD
-              <label>
-              <input id="petGenderM" type="radio" name="petGender" value="male" class=""> Male </label><label><input id="petGenderF" type="radio" name="petGender" value="female" class=""> Female</label>
-              </div>
-            </div>
 
-            <!-- Pet fixed/vaccination input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="petMedical">Medical</label>
-              <div class="col-md-4">
-              <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed
-              <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> Vaccinations
-              </div>
-            </div>
-=======
               <label class="petGender">
               <input id="petGenderM" type="radio" name="petGender" value="male" class=""> Male </label><label><input id="petGenderF" type="radio" name="petGender" value="female" class=""> Female</label>
               </div>
@@ -342,7 +282,6 @@
               </div>
             </div>
 
->>>>>>> c22c59c4e3c883141261a4683ec699453f496223
             <!-- Pet image input-->
             <div class="form-group">
               <label class="col-md-4 control-label" for="petPicture">Image</label>
@@ -351,46 +290,13 @@
               </div>
             </div>
 
-<<<<<<< HEAD
-         
-=======
-            <h3>Owner Information</h3>
-            <!-- Owner name input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="ownerName">Name</label>
-              <div class="col-md-4">
-              <input id="ownerName" name="ownerName" type="text" placeholder="John Smith" class="form-control input-md" required="">
-              </div>
-            </div>
-
-            <!-- Owner location input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="ownerLocation">Location</label>
-              <div class="col-md-4">
-              <input id="ownerLocation" name="ownerLocation" type="text" placeholder="San Francisco, CA" class="form-control input-md" required="">
-              </div>
-            </div>
-
-            <!-- Owner email input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="ownerEmail">Email</label>
-              <div class="col-md-4">
-              <input id="ownerEmail" name="ownerEmail" type="email" placeholder="mail@example.com" class="form-control input-md" required="">
-              </div>
-            </div>
-
-
->>>>>>> c22c59c4e3c883141261a4683ec699453f496223
             </fieldset>
 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-<<<<<<< HEAD
             <button type="button" class="btn btn-primary" id="addThePet">Submit</button>
-=======
-            <button type="button" class="btn btn-primary" id="savePet">Submit</button>
->>>>>>> c22c59c4e3c883141261a4683ec699453f496223
+
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

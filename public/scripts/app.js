@@ -27,42 +27,92 @@ $(document).ready(function() {
 	});
 
 //on submit, post new animal to server and refresh page (full refresh)
-	$('#addThePet').on('click', function(e) {
-		e.preventDefault()
-		// console.log("New Animal");
-		newPet.name = $('#newPetName').val();
-		newPet.picture = $('#petPicture').val();
-		newPet.age = $('#petAge').val();
-		newOwner.name = $('#ownerName').val();
-		newPet.owner = $('#ownerName').val();
-		newOwner.location = $('#ownerLocation').val();
-		newOwner.email = $('#ownerEmail').val();
-		if ($('#petFixed').prop('checked') == true) {
-			newPet.fixed = true;
-		} else {
-			newPet.fixed = false;
-		}
-		if ($('#petVaccination').prop('checked') == true) {
-			newPet.vaccination = true;
-		} else {
-			newPet.vaccination = false;
-		}
-		if ( $('#petGenderM').prop('checked') == true) {
-			newPet.gender = 'male';
-		} else {
-			newPet.gender = 'female';
-		}
-		console.log(newPet, " and ", newOwner)
-		newPet.type = $( "#petType option:selected" ).text();
-		$.ajax({
-			method: 'POST',
-			url: '/api/pets',
-			data: newPet, newOwner,
-			success: handleSuccess,
-			dataType: Object
-		})
+		$('.addPet').on('click', function(e) {
+	    e.preventDefault();
+	    (console.log("I'm A Button! YAAAYYY!"));
+	 //Launch choice modal
+	    $('#choiceModal').modal();
+	    
+	    })
+	
+    	$('#isOwner').on('click', function(e) {
+    		//owner clicked that they are registered
+    	e.preventDefault();
+    	(console.log("I'm a different button! YAAAYYY!"))
+    	$('#choiceModal').toggle();
+    	//name modal appears
+    	$('#nameModal').modal();
 
-	});
+    	})
+    //after name entered, users click submit
+    	$('#registeredName').on('click', function(e) {
+    		e.preventDefault();
+    		$('#nameModal').toggle();
+    		$('#newPet').modal();
+
+    	})
+
+
+		$('#addThePet').on('click', function(e) {
+			console.log("all the buttons")
+			e.preventDefault();
+			//pet info added and submitted
+			$('#newPet').toggle();	
+			newPet.name = $('#newPetName').val();
+			newPet.picture = $('#petPicture').val();
+			newPet.age = $('#petAge').val();
+			if ($('#petFixed').prop('checked') == true) {
+			newPet.fixed = true;
+			} else {
+			newPet.fixed = false;
+			}
+			if ($('#petVaccination').prop('checked') == true) {
+				newPet.vaccination = true;
+			} else {
+				newPet.vaccination = false;
+			}
+			if ( $('#petGenderM').prop('checked') == true) {
+				newPet.gender = 'male';
+			} else {
+				newPet.gender = 'female';
+			}
+			newPet.type = $('#petType').val();
+			newPet.owner = $('#ownerName').val().toLowerCase()
+			$.ajax({
+	    		method: 'POST',
+	    		url: '/api/pets',
+	    		data: newPet,
+	    		succes: console.log('hooray'),
+	    		error: newPetError
+	    	})
+	    	console.log("New Animal");
+		});
+			
+	    		
+	    $('#isNotOwner').on('click', function(e) {
+			e.preventDefault();
+			//if owner is not registered, new Owner modal appears
+			$('#choiceModal').toggle();
+			$('#newOwner').modal();
+
+		})	
+	    $('#addTheOwner').on('click', function(e) {
+	    	e.preventDefault();
+	    	//after owner enters personal info, can click onto add pet
+	    newOwner.name = $('#newOwnerName').val();
+			newOwner.email = $('#newOwnerEmail').val();
+			newOwner.location = $('#newOwnerLocation').val();
+			console.log(newOwner)
+	    	$('#newOwner').toggle();
+	    	$('#newPet').modal();
+	    	$.ajax({
+	    		method: 'POST',
+	    		url: '/api/owners',
+	    		data: newOwner,
+	    		succes: newOwnerSuccess,
+	    		error: newOwnerError
+	    	})
+	    })
 
 	// CLICK TO DELETE PET
 	$('#pets').on('click', '.delete-pet', function(e) {
@@ -90,29 +140,15 @@ $(document).ready(function() {
 	    e.preventDefault();
 	    (console.log("I'm A Button! YAAAYYY!"));
 	    $('#songModal').modal();
-
-<<<<<<< HEAD
 	})
-	
-=======
-	$('.addPet').on('click', function(e) {
-	    e.preventDefault();
-	    (console.log("I'm A Button! YAAAYYY!"));
-	    $('#songModal').modal();
-
-	})
-
-
->>>>>>> c22c59c4e3c883141261a4683ec699453f496223
 })
-
 
 function renderPet(pet) {
 	console.log('rendering pet', pet);
 	var petHtml = $('#pet-template').html();
 	var petsTemplate = Handlebars.compile(petHtml);
 	var html = petsTemplate(pet);
-	$('#pets').prepend(html);
+	$('#pets').append(html);
 }
 
 function handleNewInput(data) {
@@ -153,5 +189,17 @@ function postError() {
 // 	renderPet();
 // }
 
+function newOwnerSuccess() {
+	console.log('yay new owner')
+}
+function newOwnerError() {
+	console.log('no owner')
+}
+function newPetSuccess() {
+	console.log('pets for sale!')
+}
+function newPetError() {
+	console.log('rejected')
+}
 
 
