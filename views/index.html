@@ -142,7 +142,7 @@
             <h3>Are you a registered owner?</h3>
             </fieldset>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" id="isOwner">Yes</button>
+            <button type="button" class="btn btn-primary" id="isOwner">Yes</button>
             <button type="button" class="btn btn-primary" id="isNotOwner">No</button>
           </div>
         </div>
@@ -165,7 +165,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="ownerName">Name</label>
           <div class="col-md-4">
-          <input id="ownerName" name="ownerName" type="text" placeholder="Ilias" class="form-control input-md" required="">
+          <input id="ownerName" name="ownerName" type="text" placeholder="Ilias" class="form-control input-md" required>
           </div>
         </div>
           </fieldset>
@@ -191,7 +191,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="ownerName">Name</label>
               <div class="col-md-4">
-              <input id="newOwnerName" name="ownerName" type="text" placeholder="John Smith" class="form-control input-md" required="">
+              <input id="newOwnerName" name="ownerName" type="text" placeholder="John Smith" class="form-control input-md" required>
               </div>
             </div>
 
@@ -199,7 +199,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="ownerLocation">Location</label>
               <div class="col-md-4">
-              <input id="newOwnerLocation" name="ownerLocation" type="text" placeholder="San Francisco, CA" class="form-control input-md" required="">
+              <input id="newOwnerLocation" name="ownerLocation" type="text" placeholder="San Francisco, CA" class="form-control input-md" required>
               </div>
             </div>
 
@@ -207,7 +207,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="ownerEmail">Email</label>
               <div class="col-md-4">
-              <input id="newOwnerEmail" name="ownerEmail" type="text" placeholder="mail@example.com" class="form-control input-md" required="">
+              <input id="newOwnerEmail" name="ownerEmail" type="text" placeholder="mail@example.com" class="form-control input-md" required>
               </div>
             </div>
 
@@ -236,7 +236,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="petName">Pet Name</label>
               <div class="col-md-4">
-              <input id="newPetName" name="petName" type="text" placeholder="Squeaky McSqueaks" class="form-control input-md" required="">
+              <input id="newPetName" name="petName" type="text" placeholder="Squeaky McSqueaks" class="form-control input-md" required=>
               </div>
             </div>
 
@@ -258,7 +258,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="petAge">Age</label>
               <div class="col-md-4">
-              <input id="petAge" name="petAge" type="text" placeholder="3 months" class="form-control input-md" required="">
+              <input id="petAge" name="petAge" type="text" placeholder="3 months" class="form-control input-md" required>
 
               </div>
             </div>
@@ -277,8 +277,11 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="petMedical">Medical</label>
               <div class="col-md-4">
-              <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed
+              <label class="petFixed">
+              <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed</label>
+              <label class="petVaccinated">
               <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> Vaccinations
+              </label>
               </div>
             </div>
 
@@ -286,7 +289,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="petPicture">Image</label>
               <div class="col-md-4">
-              <input id="petPicture" name="petPicture" type="text" placeholder="http://image.jpg" class="form-control input-md" required="">
+              <input id="petPicture" name="petPicture" type="text" placeholder="http://image.jpg" class="form-control input-md" required>
               </div>
             </div>
 

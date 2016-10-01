@@ -47,6 +47,7 @@ $(document).ready(function() {
     //after name entered, users click submit
     	$('#registeredName').on('click', function(e) {
     		e.preventDefault();
+    		newPet.owner = $('#ownerName').val().toLowerCase()
     		$('#nameModal').toggle();
     		$('#newPet').modal();
 
@@ -77,7 +78,6 @@ $(document).ready(function() {
 				newPet.gender = 'female';
 			}
 			newPet.type = $('#petType').val();
-			newPet.owner = $('#ownerName').val().toLowerCase()
 			$.ajax({
 	    		method: 'POST',
 	    		url: '/api/pets',
@@ -86,6 +86,7 @@ $(document).ready(function() {
 	    		error: newPetError
 	    	})
 	    	console.log("New Animal");
+			history.go(0)
 		});
 			
 	    		
@@ -99,7 +100,8 @@ $(document).ready(function() {
 	    $('#addTheOwner').on('click', function(e) {
 	    	e.preventDefault();
 	    	//after owner enters personal info, can click onto add pet
-	    newOwner.name = $('#newOwnerName').val();
+	    	newOwner.name = $('#newOwnerName').val().toLowerCase();
+	    	newPet.owner = newOwner.name;
 			newOwner.email = $('#newOwnerEmail').val();
 			newOwner.location = $('#newOwnerLocation').val();
 			console.log(newOwner)
@@ -182,12 +184,6 @@ function handleSuccess() {
 function postError() {
 	console.log("it's not gonna work")
 }
-
-// function handleSavedPet() {
-// 	$('.modal-body').val('');
-// 	allPets.push(json);
-// 	renderPet();
-// }
 
 function newOwnerSuccess() {
 	console.log('yay new owner')
