@@ -286,6 +286,10 @@ function postError() {
 // 	renderPet();
 // }
 
+function getPetRowById(id) {
+  return $('[data-pet-id=' + id + ']');
+}
+
 function newOwnerSuccess() {
 	console.log('yay new owner')
 }
