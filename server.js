@@ -58,6 +58,34 @@ app.get('/api/pets/:id', function show(req, res) {
 	});
 });
 
+// *************************************
+
+// Get all dogs
+
+app.get('/api/pets/type/:type', function show(req, res) {
+	var petType = req.params.type;
+	console.log(petType);
+	db.Pet.find({ type: petType }, function(err, pet) {
+		if (err) {throw err;};
+		res.json(pet);
+	});
+});
+
+app.get('/api/pets/type/other', function show(req, res) {
+	// var petType = req.params.type;
+	// console.log(petType);
+	db.Pet.find({ type: ('dog' || 'cat') }, function(err, pet) {
+		if (err) {throw err;};
+		res.json(pet);
+	});
+});
+
+
+
+
+
+// *************************************
+
 
 // Create pet
 app.post('/api/pets', function(req, res) {

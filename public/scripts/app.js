@@ -141,7 +141,53 @@ $(document).ready(function() {
 	    (console.log("I'm A Button! YAAAYYY!"));
 	    $('#songModal').modal();
 	})
+
+
+
+	$('#drop-search').on('change', function() {
+		var selectedType = $('#drop-search :selected').text();
+		if (selectedType === 'dog') {
+			$.ajax({
+				method: 'GET',
+				url: '/api/pets/type/' + selectedType,
+				success: function(data) {
+					$(".pet").empty();
+					data.forEach(function(pet) {
+						renderPet(pet);
+				});
+			} 
+		})
+		} else if (selectedType === 'cat') {
+			$.ajax({
+				method: 'GET',
+				url: '/api/pets/type/' + selectedType,
+				success: function(data) {
+					$(".pet").empty();
+					data.forEach(function(pet) {
+					renderPet(pet);
+				});
+			} 
+			});
+		} else if (selectedType === 'other') {
+			$.ajax({
+				method: 'GET',
+				url: '/api/pets/type/other',
+				success: function(data) {
+					console.log(data);
+				}
+			});
+		}
+	})
 })
+
+
+
+
+
+
+
+
+
 
 function renderPet(pet) {
 	console.log('rendering pet', pet);
