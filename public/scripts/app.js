@@ -26,6 +26,57 @@ $(document).ready(function() {
 		});
 	});
 
+
+// Update a Pet
+
+$('#pets').on('click', '.edit-pet',function(e) {
+	    e.preventDefault();
+	    console.log("I'm A Button! YAAAYYY!");
+  		var petId = $(this).closest('.pet').attr('data-pet-id');
+			var $petRow = getPetRowById(petId);
+
+    	$petRow.find('.edit-form').toggle();
+	    $petRow.find('.edit-pet').toggle();
+	    $petRow.find('.save-changes').toggle();
+	})
+
+
+	$('#pets').on('click', '.save-changes', function(e) {
+		e.preventDefault();
+		var petId = $(this).parents('.pet').data('pet-id');
+		// var petId = $(this).closest('.pet').attr('data-pet-id');
+		var $petRow = getPetRowById(petId);
+  	$petRow.find('.edit-form').toggle();
+    $petRow.find('.edit-pet').toggle();
+    $petRow.find('.save-changes').toggle();
+  
+	  var petData = {
+	    name: $petRow.find('input[name="edit-pet-name"]').val(),
+	    age: $petRow.find('input[name="edit-pet-age"]').val(),
+	    // owner: {
+	    // 	location: $petRow.find('input[name="edit-pet-location"]').val() 
+	    // }
+	  };
+	  console.log(petData);
+    
+    $.ajax({
+    	method: 'PUT',
+    	url: '/api/pets/' + petId,
+    	data: petData,
+    	success: function(data) {
+     		$.get('/api/pets').success(function(pets) {
+					pets.forEach(function(pet) {
+					renderPet(pet);
+					});
+				});
+
+     		// console.log(data);
+     		// renderPet(data);
+    }
+	})
+})
+
+
 //on submit, post new animal to server and refresh page (full refresh)
 		$('.addPet').on('click', function(e) {
 	    e.preventDefault();
