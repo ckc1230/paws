@@ -100,9 +100,12 @@
                       <ul class="list-group">
                         <li class="list-group-item">
 
-                        <div class="original-form">
-
-                          <h4 class='inline-header'>{{name}}, {{age}} {{gender}} <span style="font-size: 12px">{{owner.location}}</span></h4>
+                        <div class="original-form" style="margin: 10px;">
+                          <span class='inline-header'>
+                            <h2 class='inline-header' style='display: inline-block; margin: 0px;'>{{name}} </h2> 
+                            <h4 class='inline-header' style='display: inline-block; float: right'>{{owner.location}}</h4>
+                          </span>
+                            <h4 class='inline-header'> {{age}}, {{gender}} </h4> 
 
                           <span class='pet-description'>Description goes here</span></br>
                           <span class='pet-medical'>
@@ -136,7 +139,7 @@
                             <input class="form-control input-md" type="text" name="edit-pet-location" value="{{owner.location}}" id="editLocationField"> <br>
 
                             <label class="col-md-4 control-label no-left-padding" for="edit-pet-email">Email</label>
-                            <input class="form-control input-md" type="text" name="edit-pet-email" value="{{owner.email}}" id="editEmailField"> <br>
+                            <input class="form-control input-md" type="email" name="edit-pet-email" value="{{owner.email}}" id="editEmailField"> <br>
                           </div>
 
                         </li>
