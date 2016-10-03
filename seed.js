@@ -180,7 +180,10 @@ petList.push({
 	fixed: false,
 	gender: "female",
 	picture: "http://www.lazerhorse.org/wp-content/uploads/2014/06/Pomeranian-Puppy-sleeping.jpg",
-	owner: "dani"
+	owner: "dani",
+	description: "this cuddly pup is just as sweet as any cupcake. " + 
+	"due to his young age, much attention is required. but believe me, " + 
+	"you’ll be receiving just as much as you give from this bundle of joy."
 });
 
 petList.push({
@@ -192,7 +195,9 @@ petList.push({
 	fixed: false,
 	gender: "male",
 	picture: "http://www.indianapest.com/images/Ant_-_10.jpg",
-	owner: "shirley"
+	owner: "shirley",
+	description: "the definition of a hard worker, this ant will do anything for his queen. " + 
+	"though not tall, he is dark and handsome. and what he lacks in height, he makes up in chivalry."
 });
 
 petList.push({
