@@ -111,6 +111,16 @@ img {
   border-color: #196F3D;
 }
 
+.pics {
+  width: 150px;
+  display: inline-block;
+  margin-left: 5vw;
+}
+
+#chris {
+  margin-left: 15vw;
+}
+
 /* NAVIGATION */
 /* Remove margins and padding from the list, and add a black background color */
 ul.topnav {
@@ -177,8 +187,14 @@ ul.topnav li.icon {display: none;}
       height: 150px;
     }
     #about-section {
-      margin: auto;
+      margin: 10px;
     }
+    .pics {
+      display: inline;
+      margin-bottom: 5vh;
+      margin-left: 15vw;
+    }
+
 }
 
 /* NAV MEDIA QUERIES */
