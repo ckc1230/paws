@@ -32,9 +32,9 @@ $(document).ready(function() {
 	    (console.log("I'm A Button! YAAAYYY!"));
 	 //Launch choice modal
 	    $('#choiceModal').modal();
-	    
+
 	    })
-	
+
     	$('#isOwner').on('click', function(e) {
     		//owner clicked that they are registered
     	e.preventDefault();
@@ -58,7 +58,7 @@ $(document).ready(function() {
 			console.log("all the buttons")
 			e.preventDefault();
 			//pet info added and submitted
-			$('#newPet').toggle();	
+			$('#newPet').toggle();
 			newPet.name = $('#newPetName').val();
 			newPet.picture = $('#petPicture').val();
 			newPet.age = $('#petAge').val();
@@ -88,15 +88,15 @@ $(document).ready(function() {
 	    	console.log("New Animal");
 			history.go(0)
 		});
-			
-	    		
+
+
 	    $('#isNotOwner').on('click', function(e) {
 			e.preventDefault();
 			//if owner is not registered, new Owner modal appears
 			$('#choiceModal').toggle();
 			$('#newOwner').modal();
 
-		})	
+		})
 	    $('#addTheOwner').on('click', function(e) {
 	    	e.preventDefault();
 	    	//after owner enters personal info, can click onto add pet
@@ -111,7 +111,7 @@ $(document).ready(function() {
 	    		method: 'POST',
 	    		url: '/api/owners',
 	    		data: newOwner,
-	    		succes: newOwnerSuccess,
+	    		success: newOwnerSuccess,
 	    		error: newOwnerError
 	    	})
 	    })
@@ -128,6 +128,29 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+// CLICK TO SEARCH PET NAME
+$('#search-button').on('click', function(e) {
+	e.preventDefault();
+	var petName = $('#search-query').val();
+	// var queryO = {name: theo};
+	// var query = $('#search-query').val();
+	console.log(petName);
+	$.ajax({
+		method: 'GET',
+		url: '/api/pets/name/' + petName,
+		success: function(data) {
+			$('.pet').empty();
+			data.forEach(function(pet) {
+				renderPet(pet);
+			});
+		}
+	});
+});
+
+$('#pets').on('click', '.like-pet', function(e) {
+	console.log("LIKE!!!!");
+});
 
 	// CLICK TO OPEN HAMBURGER MENU
 	$('.icon').on('click', function() {
@@ -159,7 +182,7 @@ function handleNewInput(data) {
 	newPet.name = data.name;
 	newPet.type = petType.val();
 	newPet.owner.ref = data.ownerName;
-	newPet.picture = data.picture 
+	newPet.picture = data.picture
 	if ($('#petFixed').prop('checked') == true) {
 		newPet.fixed = true;
 	} else {
@@ -186,16 +209,14 @@ function postError() {
 }
 
 function newOwnerSuccess() {
-	console.log('yay new owner')
+	console.log('yay new owner');
 }
 function newOwnerError() {
-	console.log('no owner')
+	console.log('no owner');
 }
 function newPetSuccess() {
-	console.log('pets for sale!')
+	console.log('pets for sale!');
 }
 function newPetError() {
-	console.log('rejected')
+	console.log('rejected');
 }
-
-

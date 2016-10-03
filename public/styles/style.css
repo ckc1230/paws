@@ -78,6 +78,11 @@ h1 {
     font-size: 12px;
 }
 
+.delete-pet {
+  background-color: #D34526;
+  border-color: #D34526;
+}
+
 /* NAVIGATION */
 /* Remove margins and padding from the list, and add a black background color */
 ul.topnav {

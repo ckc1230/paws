@@ -7,6 +7,7 @@ petList.push({
 	name: "Theo",
 	type: "dog",
 	age: "1",
+	likes: "13",
 	vaccination: true,
 	fixed: true,
 	gender: "male",
@@ -18,6 +19,7 @@ petList.push({
 	name: "Other Dog",
 	type: "dog",
 	age: "4",
+	likes: "13",
 	vacination: true,
 	fixed: true,
 	gender: "female",
@@ -29,6 +31,7 @@ petList.push({
 	name: "Maggie",
 	type: "cat",
 	age: "2",
+	likes: "13",
 	vacination: true,
 	fixed: true,
 	gender: "female",
@@ -40,6 +43,7 @@ petList.push({
 	name: "Louisa",
 	type: "bird",
 	age: "15",
+	likes: "13",
 	vaccination: true,
 	fixed: true,
 	gender: "female",
@@ -51,6 +55,7 @@ petList.push({
 	name: "Gus",
 	type: "cat",
 	age: "12",
+	likes: "13",
 	vaccination: true,
 	fixed: true,
 	gender: "male",
@@ -62,6 +67,7 @@ petList.push({
 	name: "Stella",
 	type: "cat",
 	age: "15",
+	likes: "13",
 	vaccination: true,
 	fixed: true,
 	gender: "female",
@@ -73,6 +79,7 @@ petList.push({
   name: "Snuffles",
   type: "cat",
   age: "3",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: "male",
@@ -84,6 +91,7 @@ petList.push({
   name: "Peanut",
   type: "hamster",
   age: "1",
+	likes: "13",
   vaccination: false,
   fixed: false,
   gender: "male",
@@ -95,6 +103,7 @@ petList.push({
   name: "DJ Shadez, MD",
   type: "dog",
   age: "6",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: "female",
@@ -106,6 +115,7 @@ petList.push({
   name: "Big Bow Wow",
   type: "dog",
   age: "5",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: "male",
@@ -117,6 +127,7 @@ petList.push({
   name: "Ms. Sassy",
   type: "turtle",
   age: "3",
+	likes: "13",
   vaccination: false,
   fixed: false,
   gender: "female",
@@ -128,6 +139,7 @@ petList.push({
   name: "Bob",
   type: "cat",
   age: "9",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: "male",
@@ -139,6 +151,7 @@ petList.push({
   name: "Cupcake",
   type: "dog",
   age: "1",
+	likes: "13",
   vaccination: false,
   fixed: false,
   gender: "female",
@@ -150,6 +163,7 @@ petList.push({
   name: "Handsome",
   type: "ant",
   age: "1",
+	likes: "13",
   vaccination: false,
   fixed: false,
   gender: "male",
@@ -161,6 +175,7 @@ petList.push({
   name: "Fabio",
   type: "dog",
   age: "14 years old",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: "male",
@@ -172,6 +187,7 @@ petList.push({
   name: "Beethoven",
   type: "dog",
   age: "5 years old",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: "male",
@@ -183,6 +199,7 @@ petList.push({
   name: "Garfield",
   type: "cat",
   age: "38 years old",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: "male",
@@ -194,6 +211,7 @@ petList.push({
   name: "Tookie",
   type: "bird",
   age: "19 years old",
+	likes: "13",
   vaccination: true,
   fixed: false,
   gender: "male",
@@ -205,6 +223,7 @@ petList.push({
   name: "Love",
   type: "cat",
   age: "4 years old",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: "female",
@@ -216,6 +235,7 @@ petList.push({
   name: "Olive",
   type: "chinchilla",
   age: "3 years old",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: "female",
@@ -227,6 +247,7 @@ petList.push({
   name: "Poochers",
   type: "dog",
   age: "4 years old",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: "female",
@@ -238,6 +259,7 @@ petList.push({
   name: "Stuart",
   type: "mouse",
   age: "17 years old",
+	likes: "13",
   vaccination: true,
   fixed: true,
   gender: 'male',
@@ -294,6 +316,12 @@ ownerList.push({
 	location: '255 Busch Street'
 });
 
+ownerList.push({
+	name: "Dani",
+	email: "dani@spiritualawakenings.com",
+	location: "Alameda, CA"
+});
+
 db.Pet.remove({}, function(err, pets){
   petList.forEach(function (petData) {
     var pet = new db.Pet({
@@ -320,7 +348,7 @@ db.Pet.remove({}, function(err, pets){
     });
   });
 })
- 
+
 
 db.Owner.remove({}, function(err, owners){
 	db.Owner.create(ownerList, function(err, owners){
@@ -329,5 +357,3 @@ db.Owner.remove({}, function(err, owners){
 		console.log('created', ownerList.length, 'owners');
 	});
 })
-
-
