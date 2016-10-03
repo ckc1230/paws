@@ -38,14 +38,7 @@
           <p>Find your new best friend&trade;</p>
           <button type="button" class="addPet">Add A Pet</button>
 
-          <div id="drop-search">
-            <select>
-              <option value="all"></option>
-              <option value="dog">dog</option>
-              <option value="cat">cat</option>
-              <option value="other">other</option>
-            </select>
-          </div>
+          
 
         </div>
 
@@ -71,12 +64,15 @@
           <!-- SEARCH BY TYPE -->
           <div class="custom-search-input">
             <div class="input-group col-md-12">
-              <input type="text" class="form-control input-lg" id="type-search" placeholder="Search by type" />
-              <span class="input-group-btn">
-                <button class="btn btn-info btn-lg" type="button">
-                  <i class="glyphicon glyphicon-search"></i>
-                </button>
-              </span>
+              <div id="drop-search" class="input-group col-md-12">
+                  <select class="form-control input-lg" placeholder="Search by type">
+                    <option value="" disabled selected>Search by Type</option>
+                    <option value="all">All</option>
+                    <option value="dog">Dogs</option>
+                    <option value="cat">Cats</option>
+                    <option value="other">Other</option>
+                  </select>
+              </div>
             </div>
           </div>
           <br>
@@ -104,7 +100,10 @@
                       <ul class="list-group">
                         <li class="list-group-item">
 
+                        <div class="original-form">
+
                           <h4 class='inline-header'>{{name}}, {{age}} {{gender}} <span style="font-size: 12px">{{owner.location}}</span></h4>
+
                           <span class='pet-description'>Description goes here</span></br>
                           <span class='pet-medical'>
                             <span id="fixed">Fixed: {{fixed}}</span> <span id="vaccination">Vaccinations: {{vaccination}}</span>
@@ -113,6 +112,26 @@
                           <span class='input-pet-name' style='display:none;'>
                             <input id="petName" name="petName" type="text" value="{{name}}">
                           </span>
+                        </div>
+                          
+                        <!-- UPDATE FORM (HIDDEN) -->
+
+                          <div hidden="true" class="edit-form">
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-name">Name</label>
+                            <input class="form-control input-md" type="text" name="edit-pet-name" value="{{name}}" id="editNameField">
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-age">Age</label>
+                            <input class="form-control input-md" type="text" name="edit-pet-age" value="{{age}}" id="editAgeField">
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-location">Location</label>
+                            <input class="form-control input-md" type="text" name="edit-pet-location" value="{{owner.location}}" id="editLocationField"> <br>
+                            <label class="col-md-4 control-label" for="petMedical">Medical</label>
+                            <div class="col-md-4">
+                            <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed
+                            <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> Vaccinations
+                            </div>
+
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-description">Description</label>
+                            <textarea class="form-control input-md" id="editDescriptionField"> </textarea>
+                          </div>
                         </li>
 
                       </ul>

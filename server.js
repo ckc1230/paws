@@ -60,7 +60,7 @@ app.get('/api/pets/:id', function show(req, res) {
 
 // *************************************
 
-// Get all dogs
+// Get all dogs or cats
 
 app.get('/api/pets/type/:type', function show(req, res) {
 	var petType = req.params.type;
@@ -71,18 +71,15 @@ app.get('/api/pets/type/:type', function show(req, res) {
 	});
 });
 
-app.get('/api/pets/type/other', function show(req, res) {
-	// var petType = req.params.type;
-	// console.log(petType);
-	db.Pet.find({ type: ('dog' || 'cat') }, function(err, pet) {
+
+// Get all others
+
+app.get('/api/pets/search/other', function show(req, res) {
+	db.Pet.find({ type: { $nin: ['dog', 'cat'] } }, function(err, pet) {
 		if (err) {throw err;};
 		res.json(pet);
 	});
 });
-
-
-
-
 
 // *************************************
 
@@ -128,11 +125,14 @@ app.delete('/api/pets/:id', function destroy(req,res) {
 });
 
 // Update pet
+// Update pet
 app.put('/api/pets/:id', function update(req,res) {
 	var updatedPet = req.body;
 	var petId = req.params.id;
-	db.Pet.findOneAndUpdate(petId, updatedPet, function(err,foundPet) {
+	console.log("petId found: " + petId);
+	db.Pet.findOneAndUpdate({_id: petId}, updatedPet, {new: true}, function(err,foundPet) {
 		if (err) {throw err};
+		console.log(foundPet);
 		foundPet.save();
 		res.json(foundPet);
 	});
