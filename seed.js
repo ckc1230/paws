@@ -13,7 +13,7 @@ petList.push({
 	gender: "male",
 	picture: "https://scontent-yyz1-1.cdninstagram.com/t51.2885-15/e35/14128919_1090735680973847_1968720665_n.jpg?ig_cache_key=MTMzMzAwNjc5NzA2MTM1NTUxMQ%3D%3D.2",
 	owner: "ilias",
-	description: "There is little that needs to be said about Theo, the dog the legend. Not a soul enters GA that isn't affected by his charm and grace; his poise and intent. Anyone would be lucky to own such a dog and we're all stunned ilias is putting him up for adoption'
+	description: "There is little that needs to be said about Theo, the dog the legend. Not a soul enters GA that isn't affected by his charm and grace; his poise and intent. Anyone would be lucky to own such a dog and we're all stunned ilias is putting him up for adoption"
 });
 
 petList.push({
