@@ -402,9 +402,17 @@ function newOwnerSuccess() {
 function newOwnerError() {
 	console.log('no owner');
 }
-function newPetSuccess() {
-	console.log('pets for sale!');
+function newPetSuccess(data) {
+	if (data == "No") {
+		alert('Not valid user');
+		$('#choiceModal').modal();
+	}
+	else {
+		console.log('hooray');
+		history.go(0)
+	}
 }
+
 function newPetError() {
 	console.log('rejected');
 }
