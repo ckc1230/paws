@@ -9,6 +9,7 @@
     <!-- STYLESHEETS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -16,21 +17,59 @@
     <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
-    <script src="./scripts/wipapp.js"></script>
+    <script src="./scripts/app.js"></script>
+
   </head>
   <body>
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Pick A Pet</h1>
-        <p>Find your new best friend</p>
-        <button type="button" class="addPet">Add A Pet</button>
+
+    <div id="header">
+      <!-- NAVIGATION -->
+      <ul class="topnav" id="myTopnav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/profile">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li class="icon">
+          <a href="javascript:void(0);">&#9776;</a>
+        </li>
+      </ul>
+      <div class="jumbotron">
+        <div class="container">
+          <!-- LOGO, TITLE, HEADLINE -->
+          <img id="logo" src="http://i66.tinypic.com/2j5nx5c.png"/><h1>pickapet</h1>
+          <p>Find your new best friend&trade;</p>
+          <button type="button" class="addPet">Add A Pet</button>
+        </div>
       </div>
-    </div>
+  </div>
 
     <!-- MAIN CONTENT -->
     <section class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
+          <!-- SEARCH BY NAME -->
+          <div class="custom-search-input">
+            <div class="input-group col-md-12">
+              <input type="text" class="form-control input-lg" id="name-search" placeholder="Search by name" />
+              <span class="input-group-btn">
+                <button class="btn btn-info btn-lg" type="button">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+          <br>
+          <!-- SEARCH BY TYPE -->
+          <div class="custom-search-input">
+            <div class="input-group col-md-12">
+              <input type="text" class="form-control input-lg" id="type-search" placeholder="Search by type" />
+              <span class="input-group-btn">
+                <button class="btn btn-info btn-lg" type="button">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+          <br>
           <h2>Pets</h2>
         </div>
       </div>
@@ -49,18 +88,23 @@
                   <div class='row'>
                     <div class="col-md-3 col-xs-12 thumbnail pet-image">
                       <img src={{picture}}>
-
                     </div>
 
                     <div class="col-md-9 col-xs-12">
                       <ul class="list-group">
                         <li class="list-group-item">
+
                           <h4 class='inline-header'>{{name}}, {{age}} {{gender}} <span style="font-size: 12px">{{owner.location}}</span></h4>
                           <span class='pet-description'>Description goes here</span></br>
-                          <span>Owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
+                          <span class='pet-medical'>
+                            <span id="fixed">Fixed: {{fixed}}</span> <span id="vaccination">Vaccinations: {{vaccination}}</span>
+                          </span></br>
+                          <span id="owned-by">Owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
                           <span class='input-pet-name' style='display:none;'>
                             <input id="petName" name="petName" type="text" value="{{name}}">
-                          </span>
+                          </span></br/>
+                          <span>{{interested}} people are interested in this pet</span>
+                          <button id="idlike" class="classlike" style="float:right">I'm interested</button>
                         </li>
 
                       </ul>
@@ -75,20 +119,20 @@
                       <button class='btn btn-primary edit-pet'>Edit Pet</button>
                       <button class='btn btn-primary save-changes' style='display:none;'>Save Changes</button>
                     </div>
-
                   </div>
+
 
                 </div>
               </div>
             </div>
           </div>
-          <!-- end one album -->
+          <!-- end one pet -->
         </script>
 
       </div>
     </section>
 
-       <!-- begin songModal: this is not visible until you call .modal() on it -->
+       <!-- begin petModal: this is not visible until you call .modal() on it -->
     <div class="modal fade" tabindex="-1" role="dialog" id="choiceModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -101,7 +145,7 @@
             <h3>Are you a registered owner?</h3>
             </fieldset>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" id="isOwner">Yes</button>
+            <button type="button" class="btn btn-primary" id="isOwner">Yes</button>
             <button type="button" class="btn btn-primary" id="isNotOwner">No</button>
           </div>
         </div>
@@ -111,7 +155,7 @@
 
 
 
-  <div class="modal fade" tabindex="-1" role="dialog" id="nameModal">
+  <div class="modal fade" tabindex="-1" role="dialog" id="nameModal" excluded="disabled">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -124,7 +168,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="ownerName">Name</label>
           <div class="col-md-4">
-          <input id="ownerName" name="ownerName" type="text" placeholder="Ilias" class="form-control input-md" required="">
+          <input id="ownerName" name="ownerName" type="text" placeholder="ilias" class="form-control required">
           </div>
         </div>
           </fieldset>
@@ -188,6 +232,7 @@
             <h4 class="modal-title">Post A Pet</h4>
           </div>
           <div class="modal-body">
+
             <fieldset class='form-horizontal'>
             <h3>Pet Information</h3>
             <!-- Pet name input-->
@@ -195,8 +240,6 @@
               <label class="col-md-4 control-label" for="petName">Pet Name</label>
               <div class="col-md-4">
               <input id="newPetName" name="petName" type="text" placeholder="Squeaky McSqueaks" class="form-control input-md" required="">
-
-
               </div>
             </div>
 
@@ -227,8 +270,9 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="petGender">Gender</label>
               <div class="col-md-4">
-              <label>
-              <input id="petGenderM" type="radio" name="petGender" value="male" class=""> Male </label><label><input id="petGenderF" type="radio" name="petGender" value="female" class=""> Female</label>
+
+              <label class="petGender">
+              <input id="petGenderM" type="radio" name="petGender" value="male" class=""> Male </label><label><input id="petGenderF" type="radio" name="petGender" value="female" class="">Female</label>
               </div>
             </div>
 
@@ -236,10 +280,11 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="petMedical">Medical</label>
               <div class="col-md-4">
-              <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed
-              <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> Vaccinations
+              <label class='fixed' <input id="petFixed" type="checkbox" name="petFixed" value="fixed">Fixed</label>
+              <label class='vacc'><input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations">Vaccinations</label>
               </div>
             </div>
+
             <!-- Pet image input-->
             <div class="form-group">
               <label class="col-md-4 control-label" for="petPicture">Image</label>
@@ -248,13 +293,13 @@
               </div>
             </div>
 
-         
             </fieldset>
 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             <button type="button" class="btn btn-primary" id="addThePet">Submit</button>
+
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

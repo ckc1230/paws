@@ -1,0 +1,177 @@
+h1 {
+  font-family: 'Fjalla One', sans-serif;
+  display: inline-block;
+  color: black;
+}
+
+#logo {
+  height: 45px;
+  width: 45px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
+
+.inline-header {
+  font-weight: bold;
+}
+
+.inline-header span {
+  float: right;
+  font-weight: lighter;
+}
+
+.panel-footer {
+  background-color: transparent;
+  border: none;
+  float: right;
+}
+
+.panel-body {
+  padding-left: 30px;
+}
+
+#fixed {
+  margin-right: 20px;
+}
+
+#petGenderF {
+  margin-left: 15px;
+}
+
+#petVaccination {
+  margin-left: 15px;
+}
+
+/* SEARCH BAR */
+#custom-search-input{
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+    width: 200px;
+    float: right;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+    font-size: 14px;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 12px;
+}
+
+/* NAVIGATION */
+/* Remove margins and padding from the list, and add a black background color */
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Float the list items side by side */
+ul.topnav li {float: left;}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.topnav li a:hover {background-color: #555;}
+
+/* Hide the list item that contains the link that should open and close the topnav on small screens */
+ul.topnav li.icon {display: none;}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 500px) {
+    img {
+      width: 300px;
+      height: 300px;
+    }
+    .thumbnail {
+      width: 300px;
+      height: 300px;
+      margin-left: 5px;
+      padding-left: 10px;
+    }
+    .col-xs-12 {
+      padding-left: 1px;
+    }
+    .inline-header span {
+      display: block;
+      text-align: left;
+      float: left;
+      margin-bottom: 2px;
+    }
+    .pet-description {
+      margin-top: 5px;
+      float: left;
+      clear: both;
+    }
+    .pet-medical {
+      float: left;
+    }
+    #owned-by {
+      float: left;
+    }
+    .list-group-item {
+      height: 150px;
+    }
+    #about-section {
+      margin: auto;
+    }
+}
+
+/* NAV MEDIA QUERIES */
+/* When the screen is less than 680 pixels wide, hide all list items, except for the first one ("Home"). Show the list item that contains the link to open and close the topnav (li.icon) */
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
