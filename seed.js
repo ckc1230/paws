@@ -209,7 +209,8 @@ petList.push({
 	fixed: true,
 	gender: "male",
 	picture: "https://scontent-yyz1-1.cdninstagram.com/t51.2885-15/e35/13150791_645581085597263_1211879218_n.jpg?ig_cache_key=MTI0NjYzODY4MjcwODMwNzExNQ%3D%3D.2",
-	owner: "natalia"
+	owner: "natalia",
+	description: "the og cloud prince. he loves sleeping and eating. fabio is an old soul with a youthful exterior."
 });
 
 petList.push({
@@ -221,7 +222,8 @@ petList.push({
 	fixed: true,
 	gender: "male",
 	picture: "http://www.coupay.com/topoften/wp-content/uploads/2014/01/images-33.jpg",
-	owner: "ilias"
+	owner: "ilias",
+	description: "beethoven is a loveable, drooly st. bernard who loves people. he requires a lot of space, as he is a large dog."
 });
 
 petList.push({
@@ -233,19 +235,21 @@ petList.push({
 	fixed: true,
 	gender: "male",
 	picture: "https://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15463-f13/www/proj2/www/bcharas/worst/garfield/garfield_cat.jpg",
-	owner: "dani"
+	owner: "dani",
+	description: "garfield is a chubby orange tabby cat who hates mondays and loves lasagna. he thinks dogs are particularly unintelligent."
 });
 
 petList.push({
 	name: "tookie",
-	type: "other",
+	type: "bird",
 	age: "19 years old",
 	interested: "13",
 	vaccination: true,
 	fixed: false,
 	gender: "male",
 	picture: "http://www.animalspot.net/wp-content/uploads/2016/02/Toco-Toucan-Pictures.jpg",
-	owner: "ilias"
+	owner: "ilias",
+	description: "original owner was george of the jungle. tookie is a toucan who likes to say his name and eat froot loops."
 });
 
 petList.push({
@@ -257,7 +261,8 @@ petList.push({
 	fixed: true,
 	gender: "female",
 	picture: "https://scontent-yyz1-1.cdninstagram.com/t51.2885-15/e35/13473237_1758580281032310_436342857_n.jpg?ig_cache_key=MTI4Mzg0MTQxMDMyNzU2MDEzMw%3D%3D.2",
-	owner: "megan"
+	owner: "megan",
+	description: "described as 'big-boned'...love is definitely more to love. she loves to chirp and paw fluffy blankets. she is a diva with plenty of sass."
 });
 
 petList.push({
@@ -269,7 +274,8 @@ petList.push({
 	fixed: true,
 	gender: "female",
 	picture: "https://upload.wikimedia.org/wikipedia/commons/0/02/Chinchilla-Soelvmarmorert.jpg",
-	owner: "claire"
+	owner: "claire",
+	description: "olive is a charming chinchilla who loves to run around and hold things with her little chinchilla hands. she gets along well with other animals and loves dustbaths."
 });
 
 petList.push({
@@ -281,19 +287,21 @@ petList.push({
 	fixed: true,
 	gender: "female",
 	picture: "https://scontent-yyz1-1.cdninstagram.com/t51.2885-15/e35/13707160_272207893151806_346874866_n.jpg?ig_cache_key=MTMxMDc3OTY3MzY4OTM1ODU1MA%3D%3D.2",
-	owner: "michael"
+	owner: "michael",
+	description: "poochers is a golden retriever who is incredibly sociable and great with kids. she loves taking yogurt baths and going on runs alongside her owner."
 });
 
 petList.push({
 	name: "stuart",
-	type: "other",
+	type: "mouse",
 	age: "17 years old",
 	interested: "13",
 	vaccination: true,
 	fixed: true,
 	gender: 'male',
 	picture: 'https://media.salon.com/2002/07/stuart_little_2.jpg',
-	owner: "george"
+	owner: "george",
+	description: "stuart is little mouse in a big city. he loves humans and wearing sweaters. stuart is not very fond of cats, especially if the cat is named Snowball."
 });
 
 var ownerList = [];
