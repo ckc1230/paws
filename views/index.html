@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="icon" href="http://i66.tinypic.com/6r3w4m.jpg">
     <title>paws</title>
 
     <!-- STYLESHEETS -->
@@ -26,7 +27,7 @@
       <ul class="topnav" id="myTopnav">
         <li><a href="/">home</a></li>
         <li><a href="/profile">about</a></li>
-        <li><a href="#">contact</a></li>
+        <li><a href="mailto:info@paws.org">contact</a></li>
         <li class="icon">
           <a href="javascript:void(0);">&#9776;</a>
         </li>
@@ -36,7 +37,7 @@
           <!-- LOGO, TITLE, HEADLINE -->
           <h1>.paws(<img id="logo" src="http://i66.tinypic.com/2j5nx5c.png"/>)</h1>
           <p>find your new best friend&trade;</p>
-          <button type="button" class="addPet">add a pet</button>
+          <button class='btn btn-primary addPet'> &#10010; add a pet</button>
         </div>
       </div>
   </div>
@@ -60,15 +61,12 @@
           <!-- SEARCH BY TYPE -->
           <div class="custom-search-input">
             <div class="input-group col-md-12">
-              <div id="drop-search" class="input-group col-md-12">
-                  <select class="form-control input-lg" placeholder="Search by type">
-                    <option value="" disabled selected>Search by Type</option>
-                    <option value="all">All</option>
-                    <option value="dog">Dogs</option>
-                    <option value="cat">Cats</option>
-                    <option value="other">Other</option>
-                  </select>
-              </div>
+              <input type="text" class="form-control input-lg" id="type-search" placeholder="search by type" />
+              <span class="input-group-btn">
+                <button class="btn btn-info btn-lg" type="button">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </span>
             </div>
           </div>
           <br>
@@ -107,32 +105,6 @@
                           <span class='input-pet-name' style='display:none;'>
                             <input id="petName" name="petName" type="text" value="{{name}}">
                           </span>
-                          
-                          <!-- UPDATE FORM (HIDDEN) -->
-
-                          <div hidden="true" class="edit-form">
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-name">Name</label>
-                            <input class="form-control input-md" type="text" name="edit-pet-name" value="{{name}}" id="editNameField">
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-age">Age</label>
-                            <input class="form-control input-md" type="text" name="edit-pet-age" value="{{age}}" id="editAgeField">
-                            <label class="col-md-4 control-label" for="petMedical">Medical</label>
-                            <div class="col-md-4">
-                            <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed
-                            <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> Vaccinations
-                            </div>
-
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-description">Description</label>
-                            <textarea class="form-control input-md" id="editDescriptionField"> </textarea>
-                          </div>
-
-                          <div hidden="true" class="edit-form2">
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-location">Location</label>
-                            <input class="form-control input-md" type="text" name="edit-pet-location" value="{{owner.location}}" id="editLocationField"> <br>
-
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-email">Email</label>
-                            <input class="form-control input-md" type="text" name="edit-pet-email" value="{{owner.email}}" id="editEmailField"> <br>
-                          </div>
-                          
                         </li>
 
                       </ul>
@@ -143,11 +115,10 @@
 
                   <div class='panel-footer'>
                     <div class='panel-footer'>
-                      <button class='btn btn-primary delete-pet'>delete pet</button>
-                      <button class='btn btn-primary edit-pet'>edit pet</button>
-                      <button class='btn btn-primary edit-owner' style='display:none;'>more...</button>
-                      <button class='btn btn-primary save-changes' style='display:none;'>save changes</button>
-                      <button class='btn btn-primary like-pet'>&hearts; {{interested}}</button>
+                      <button class='btn btn-primary delete-pet'>&#10006; delete</button>
+                      <button class='btn btn-primary edit-pet'>&#9998; edit</button>
+                      <button class='btn btn-primary save-changes' style='display:none;'>&check; save changes</button>
+                      <button class='btn btn-primary like-pet'>&hearts; like</button>
                     </div>
                   </div>
 
@@ -175,7 +146,7 @@
             <h3>are you a registered owner?</h3>
             </fieldset>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" id="isOwner">yes</button>
+            <button type="button" class="btn btn-primary" id="isOwner">yes</button>
             <button type="button" class="btn btn-primary" id="isNotOwner">no</button>
           </div>
         </div>
@@ -198,7 +169,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label" for="ownerName">name</label>
           <div class="col-md-4">
-          <input id="ownerName" name="ownerName" type="text" placeholder="Ilias" class="form-control input-md" required="">
+          <input id="ownerName" name="ownerName" type="text" placeholder="john" class="form-control input-md" required="">
           </div>
         </div>
           </fieldset>
@@ -224,15 +195,15 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="ownerName">name</label>
               <div class="col-md-4">
-              <input id="newOwnerName" name="ownerName" type="text" placeholder="John Smith" class="form-control input-md" required="">
+              <input id="newOwnerName" name="ownerName" type="text" placeholder="john smith" class="form-control input-md" required="">
               </div>
             </div>
 
             <!-- Owner location input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="ownerLocation">Location</label>
+              <label class="col-md-4 control-label" for="ownerLocation">location</label>
               <div class="col-md-4">
-              <input id="newOwnerLocation" name="ownerLocation" type="text" placeholder="San Francisco, CA" class="form-control input-md" required="">
+              <input id="newOwnerLocation" name="ownerLocation" type="text" placeholder="san francisco, ca" class="form-control input-md" required="">
               </div>
             </div>
 
@@ -310,8 +281,9 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="petMedical">medical</label>
               <div class="col-md-4">
-              <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> fixed
-              <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> vaccinations
+                <label class="petMedical">
+                <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> fixed </label>
+                <label><input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> vaccinations</label>
               </div>
             </div>
 
