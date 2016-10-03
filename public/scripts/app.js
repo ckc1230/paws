@@ -48,10 +48,8 @@ $('#pets').on('click', '.edit-pet',function(e) {
 $('#pets').on('click', '.edit-owner', function(e) {
 	e.preventDefault();
 	var petId = $(this).parents('.pet').data('pet-id');
-	// var petId = $(this).closest('.pet').attr('data-pet-id');
 	var $petRow = getPetRowById(petId);
-	// $petRow.find('.original-form').toggle();
-	// $petRow.find('.edit-form').toggle();
+
   $petRow.find('.edit-pet').toggle();
   $petRow.find('.save-changes').toggle();
 
@@ -73,18 +71,11 @@ $('#pets').on('click', '.edit-owner', function(e) {
       $petRow.find('.edit-pet').toggle();
 			$petRow.find('.edit-owner').toggle();
 
-			ownerId = data.owner;
-			updatedPet = data;
-
-
-			// $petRow.empty();
-   // 		$petRow.append(reRenderPet(data));
+			ownerId = data.owner;			// Store owner's id in global variable
+			updatedPet = data;				// Store updated pet in global variable
 		}
 	});
 })
-
-
-
 
 $('#pets').on('click', '.save-changes', function(e) {
 	e.preventDefault();
