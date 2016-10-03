@@ -137,8 +137,22 @@ app.put('/api/pets/:id', function update(req,res) {
 		foundPet.save();
 		res.json(foundPet);
 	});
-});	 
-	
+});
+
+// Update Likes
+app.patch('/api/pets/:id', function patch(req, res) {
+	var petId = req.params.id;
+	console.log(petId);
+	db.Pet.findById(petId, function(err, pet) {
+		if (err) {throw err; };
+		console.log(pet)
+		pet.interested = pet.interested + 1;
+		console.log(pet);
+		pet.save();
+		res.json(pet);
+	})
+})
+
 // Search Pet Name
 app.get('/api/pets/name/:name', function nameSearch(req, res) {
 	console.log(req.params.name);
