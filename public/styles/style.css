@@ -1,3 +1,11 @@
+body {
+  background-color: #BFBEBD;
+}
+
+h2 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
 h1 {
   font-family: 'Fjalla One', sans-serif;
   display: inline-block;
@@ -41,6 +49,11 @@ h1 {
 
 #petVaccination {
   margin-left: 15px;
+}
+
+img {
+  width: auto;
+  height: auto;
 }
 
 /* SEARCH BAR */
@@ -88,6 +101,16 @@ h1 {
   border-color: #A93226;
 }
 
+.addPet {
+  background-color: #229954;
+  border-color: #229954;
+}
+
+.addPet:hover {
+  background-color: #196F3D;
+  border-color: #196F3D;
+}
+
 /* NAVIGATION */
 /* Remove margins and padding from the list, and add a black background color */
 ul.topnav {
@@ -95,7 +118,7 @@ ul.topnav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #403F3F;
 }
 
 /* Float the list items side by side */
