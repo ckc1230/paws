@@ -60,12 +60,15 @@
           <!-- SEARCH BY TYPE -->
           <div class="custom-search-input">
             <div class="input-group col-md-12">
-              <input type="text" class="form-control input-lg" id="type-search" placeholder="Search by type" />
-              <span class="input-group-btn">
-                <button class="btn btn-info btn-lg" type="button">
-                  <i class="glyphicon glyphicon-search"></i>
-                </button>
-              </span>
+              <div id="drop-search" class="input-group col-md-12">
+                  <select class="form-control input-lg" placeholder="Search by type">
+                    <option value="" disabled selected>Search by Type</option>
+                    <option value="all">All</option>
+                    <option value="dog">Dogs</option>
+                    <option value="cat">Cats</option>
+                    <option value="other">Other</option>
+                  </select>
+              </div>
             </div>
           </div>
           <br>
