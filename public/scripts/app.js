@@ -13,6 +13,10 @@ var newOwner = {
 	email: "",
 	location: ""
 }
+
+var ownerId = "";
+var updatedPet = {};
+
 allPets = []
 
 $(document).ready(function() {
@@ -126,6 +130,140 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	// Update a Pet
+
+$('#pets').on('click', '.edit-pet',function(e) {
+	    e.preventDefault();
+  		var petId = $(this).closest('.pet').attr('data-pet-id');
+			var $petRow = getPetRowById(petId);
+
+			$petRow.find('.original-form').toggle();
+			$petRow.find('.delete-pet').toggle();
+    	$petRow.find('.edit-form').toggle();
+	    $petRow.find('.edit-pet').toggle();
+	    $petRow.find('.edit-owner').toggle();
+	    // $petRow.find('.save-changes').toggle();
+})
+
+$('#pets').on('click', '.edit-owner', function(e) {
+	e.preventDefault();
+	var petId = $(this).parents('.pet').data('pet-id');
+	// var petId = $(this).closest('.pet').attr('data-pet-id');
+	var $petRow = getPetRowById(petId);
+	// $petRow.find('.original-form').toggle();
+	// $petRow.find('.edit-form').toggle();
+  $petRow.find('.edit-pet').toggle();
+  $petRow.find('.save-changes').toggle();
+
+	var petLocation = $petRow.find('input[name="edit-pet-location"]').val();
+	console.log(petLocation);
+
+  var petData = {
+    name: $petRow.find('input[name="edit-pet-name"]').val(),
+    age: $petRow.find('input[name="edit-pet-age"]').val(),
+  };
+  
+  $.ajax({
+  	method: 'PUT',
+  	url: '/api/pets/' + petId,
+  	data: petData,
+  	success: function(data) {
+  		$petRow.find('.edit-form').toggle();
+  		$petRow.find('.edit-form2').toggle();
+      $petRow.find('.edit-pet').toggle();
+			$petRow.find('.edit-owner').toggle();
+
+			ownerId = data.owner;
+			updatedPet = data;
+
+
+			// $petRow.empty();
+   // 		$petRow.append(reRenderPet(data));
+		}
+	});
+})
+
+
+$('#pets').on('click', '.save-changes', function(e) {
+	e.preventDefault();
+	var petId = $(this).parents('.pet').data('pet-id');
+	// var petId = $(this).closest('.pet').attr('data-pet-id');
+	var $petRow = getPetRowById(petId);
+	$petRow.find('.edit-form').toggle();
+  $petRow.find('.edit-pet').toggle();
+	$petRow.find('.original-form').toggle();
+  $petRow.find('.save-changes').toggle();
+
+  var ownerData = {
+    location: $petRow.find('input[name="edit-pet-location"]').val(),
+    email: $petRow.find('input[name="edit-pet-email"]').val(),
+  };
+
+  console.log("Before server: " + ownerData);
+  console.log("Owner ID: " + ownerId);
+  
+  $.ajax({
+  	method: 'PUT',
+  	url: '/api/owners/' + ownerId,
+  	data: ownerData,
+  	success: function(data) {
+  		updatedPet.owner = data;
+   		console.log(data);
+			$petRow.empty();
+   		$petRow.append(reRenderPet(updatedPet));
+		}
+	});
+})
+	
+// Sort by type
+
+	$('#drop-search').on('change', function() {
+		var selectedType = $('#drop-search :selected').val();
+		console.log(selectedType);
+		if (selectedType === 'dog') {
+			$.ajax({
+				method: 'GET',
+				url: '/api/pets/type/' + selectedType,
+				success: function(data) {
+					$(".pet").empty();
+					data.forEach(function(pet) {
+						renderPet(pet);
+					});
+				} 
+			})
+		} else if (selectedType === 'cat') {
+			$.ajax({
+				method: 'GET',
+				url: '/api/pets/type/' + selectedType,
+				success: function(data) {
+					$(".pet").empty();
+					data.forEach(function(pet) {
+					renderPet(pet);
+					});
+				} 
+			});
+		} else if (selectedType === 'other') {
+			$.ajax({
+				method: 'GET',
+				url: '/api/pets/search/other',
+				success: function(data) {
+						$(".pet").empty();
+					data.forEach(function(pet) {
+					renderPet(pet);
+					})
+				}
+			});
+		} else {
+				$(".pet").empty();
+				$.get('/api/pets').success(function(pets) {
+					pets.forEach(function(pet) {
+					renderPet(pet);
+					});
+				});
+			}
+		})
+
 
 // CLICK TO SEARCH PET NAME
 $('#search-button').on('click', function(e) {
@@ -172,6 +310,14 @@ function renderPet(pet) {
 	var petsTemplate = Handlebars.compile(petHtml);
 	var html = petsTemplate(pet);
 	$('#pets').append(html);
+}
+
+function reRenderPet(pet) {
+	console.log('rendering pet', pet);
+	var petHtml = $('#pet-template').html();
+	var petsTemplate = Handlebars.compile(petHtml);
+	var html = petsTemplate(pet);
+	return html;
 }
 
 function handleNewInput(data) {
