@@ -99,6 +99,8 @@
                             <span id="fixed">Fixed: {{fixed}}</span> <span id="vaccination">Vaccinations: {{vaccination}}</span>
                           </span></br>
                           <span id="owned-by">Owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
+                          </br>
+                          <span id="interest-count">{{likes}} people interested in me</span>
                           <span class='input-pet-name' style='display:none;'>
                             <input id="petName" name="petName" type="text" value="{{name}}">
                           </span>
@@ -115,6 +117,7 @@
                       <button class='btn btn-primary delete-pet'>Delete Pet</button>
                       <button class='btn btn-primary edit-pet'>Edit Pet</button>
                       <button class='btn btn-primary save-changes' style='display:none;'>Save Changes</button>
+                      <button class='btn btn-primary like-pet'>&hearts; {{interested}}</button>
                     </div>
                   </div>
 

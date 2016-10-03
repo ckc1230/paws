@@ -130,15 +130,24 @@ $(document).ready(function() {
 // CLICK TO SEARCH PET NAME
 $('#search-button').on('click', function(e) {
 	e.preventDefault();
-	var query = $('#search-query').text();
-	console.log(query);
+	var petName = $('#search-query').val();
+	// var queryO = {name: theo};
+	// var query = $('#search-query').val();
+	console.log(petName);
 	$.ajax({
 		method: 'GET',
-		url: '/api/pets/:name',
-		success: function() {
-			console.log("Search pet ajax sanity check");
+		url: '/api/pets/name/' + petName,
+		success: function(data) {
+			$('.pet').empty();
+			data.forEach(function(pet) {
+				renderPet(pet);
+			});
 		}
 	});
+});
+
+$('#pets').on('click', '.like-pet', function(e) {
+	console.log("LIKE!!!!");
 });
 
 	// CLICK TO OPEN HAMBURGER MENU
