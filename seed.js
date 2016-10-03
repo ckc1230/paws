@@ -41,7 +41,7 @@ petList.push({
 
 petList.push({
 	name: "louisa",
-	type: "bird",
+	type: "other",
 	age: "15 years old",
 	interested: "13",
 	vaccination: true,
@@ -84,12 +84,15 @@ petList.push({
   fixed: true,
   gender: "male",
   picture: "http://petful.supercopyeditors.netdna-cdn.com/wp-content/uploads/2016/02/14032864382_0566a75778_c-750x501.jpg",
-  owner: "martha"
+  owner: "martha",
+  description: "snuffles will be a wonderful addition to your family. " +
+	"he’ll be by your side when you’re napping or cozying up with a book. " + 
+	"even better, try playing a musical instrument while he is in the room. you’ll be in for a pleasant surprise!"
 });
 
 petList.push({
 	name: "peanut",
-	type: "hamster",
+	type: "other",
 	age: "1 years old",
 	interested: "13",
 	vaccination: false,
@@ -125,7 +128,7 @@ petList.push({
 
 petList.push({
 	name: "ms. sassy",
-	type: "turtle",
+	type: "other",
 	age: "3 years old",
 	interested: "13",
 	vaccination: false,
@@ -161,7 +164,7 @@ petList.push({
 
 petList.push({
 	name: "handsome",
-	type: "ant",
+	type: "other",
 	age: "3 hours old",
 	interested: "13",
 	vaccination: false,
@@ -209,7 +212,7 @@ petList.push({
 
 petList.push({
 	name: "tookie",
-	type: "bird",
+	type: "other",
 	age: "19 years old",
 	interested: "13",
 	vaccination: true,
@@ -257,7 +260,7 @@ petList.push({
 
 petList.push({
 	name: "stuart",
-	type: "mouse",
+	type: "other",
 	age: "17 years old",
 	interested: "13",
 	vaccination: true,
