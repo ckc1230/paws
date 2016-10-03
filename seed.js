@@ -144,7 +144,10 @@ petList.push({
 	fixed: false,
 	gender: "female",
 	picture: "http://www.thepetmatchmaker.com/wp-content/uploads/2014/08/fd428d2622b607196dab24e277422cbf-1.jpg",
-	owner: "dani"
+	owner: "dani",
+	description: '“doing squats so my ass matches my sass” is this turtle’s motto. ' + 
+	'ms. sassy is definitely on the lazy side. but put her on a set of wheels, and you better keep your eyes on her. ' + 
+	'she is always speeding off to who knows where.'
 });
 
 petList.push({
@@ -156,7 +159,10 @@ petList.push({
 	fixed: true,
 	gender: "male",
 	picture: "https://media.giphy.com/media/pVkmGyqYRt4qY/giphy-facebook_s.jpg",
-	owner: "paws"
+	owner: "paws",
+	description: 'bob the blob is where you think he is...right where you left him. ' + 
+	'make sure you have plenty of snacks for his appetite and do not expect him to ' + 
+	'play fetch with you. maybe you can try chess?'
 });
 
 petList.push({
