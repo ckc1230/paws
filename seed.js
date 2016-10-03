@@ -107,7 +107,7 @@ petList.push({
 	picture: "http://www.mrjohnsons.co.uk/uploads/small/copy_hamster_nutc.jpg",
 	owner: "greg",
 	description: "ironically, ‘peanut the hamster’ does not like peanuts! " + 
-	"he actually despises peanuts and demolishes them purely to display his dominance. " + 
+	"he actually despises peanuts and demolishes them purely to assert his dominance. " + 
 	"some of his favorite activities include: running on his wheel and sleeping amongst the shell of his adversary - the peanut."
 });
 
@@ -137,7 +137,7 @@ petList.push({
  	picture: "https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s320x320/e15/11358034_1458243211142525_1167013190_n.jpg",
 	owner: "ilias",
 	description: 'lil bow wow has nothing on big bow wow. ' + 
-	'this lovable giant is great with kids and great with young up-and-coming rappers. ' + 
+	'this lovable giant is great with kids and young up-and-coming rappers. ' + 
 	'he also had a cameo in “the fast and the furious: tokyo drift”.'
 });
 
