@@ -1,14 +1,14 @@
-<img src="http://i64.tinypic.com/34yut7o.jpg" width="200">
+<img src="http://i66.tinypic.com/2z8npc6.jpg" width="200">
 
-# pickapet
+# paws
 
 ## Description
 
-We are developing a website to serve users who are looking to either adopt a pet or put their pet up for adoption.
+<b>paws</b> is a website designed for users whoa are looking to either adopt a new pet or put their pet up for adoption.
 
-The website allows those looking to adopt a pet to browse our animals' names, type, age, location and health. If he or she wishes to request additional information, or desire to adopt an animal, contact information for the current owner is provided.
+The user is able to search for a pet by name or by type (dog, cat, other). If the user wishes to request additional information or express interest in adoption, he or she can click on the owner's name to send an email.
 
-If one wishes to post a pet for adoption, there is a form that lists out the required information in order to add the furry friend into our Pick-A-Pet database.
+On the other hand, if a user wishes to list his or her pet for adoption, he or she may simply click the "add a pet" button. This will navigate the user to a form where he or she can enter the information required to add the furry friend into our <b>paws</b> database.
 
 <i>See the published project on Heroku.</i>
 
