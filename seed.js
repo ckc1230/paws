@@ -59,7 +59,7 @@ petList.push({
 	vaccination: true,
 	fixed: true,
 	gender: "male",
-	picture: '',
+	picture: 'http://www.bandofcats.com/wp-content/uploads/2011/06/funny-cats_93.jpg',
 	owner: "shirley"
 });
 
@@ -71,7 +71,7 @@ petList.push({
 	vaccination: true,
 	fixed: true,
 	gender: "female",
-	picture: '',
+	picture: 'http://www.top13.net/wp-content/uploads/2015/10/perfectly-timed-funny-cat-pictures-5.jpg',
 	owner: "mitch"
 });
 
