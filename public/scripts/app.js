@@ -31,92 +31,126 @@ $(document).ready(function() {
 	});
 
 //on submit, post new animal to server and refresh page (full refresh)
-		$('.addPet').on('click', function(e) {
-	    e.preventDefault();
-	    (console.log("I'm A Button! YAAAYYY!"));
-	 //Launch choice modal
-	    $('#choiceModal').modal();
+        $('.addPet').on('click', function(e) {
+        e.preventDefault();
+        (console.log("I'm A Button! YAAAYYY!"));
+     //Launch choice modal
+        $('#choiceModal').modal();
 
-	    })
+        })
 
-    	$('#isOwner').on('click', function(e) {
-    		//owner clicked that they are registered
-    	e.preventDefault();
-    	(console.log("I'm a different button! YAAAYYY!"))
-    	$('#choiceModal').toggle();
-    	//name modal appears
-    	$('#nameModal').modal();
+        $('#isOwner').on('click', function(e) {
+            //owner clicked that they are registered
+        e.preventDefault();
+        (console.log("I'm a different button! YAAAYYY!"))
+        $('#choiceModal').toggle();
+        //name modal appears
+        $('#nameModal').modal();
 
-    	})
+        })
     //after name entered, users click submit
-    	$('#registeredName').on('click', function(e) {
-    		e.preventDefault();
-    		$('#nameModal').toggle();
-    		$('#newPet').modal();
+        $('#registeredName').on('click', function(e) {
+            e.preventDefault();
+            if ($('#ownerName').val() == 0) {
+                alert('Please enter your name')
+            } else {
+                newPet.owner = $('#ownerName').val();
+                $('#nameModal').toggle();
+                $('#newPet').modal();
+            }
 
-    	})
-
-
-		$('#addThePet').on('click', function(e) {
-			console.log("all the buttons")
-			e.preventDefault();
-			//pet info added and submitted
-			$('#newPet').toggle();
-			newPet.name = $('#newPetName').val();
-			newPet.picture = $('#petPicture').val();
-			newPet.age = $('#petAge').val();
-			if ($('#petFixed').prop('checked') == true) {
-			newPet.fixed = true;
-			} else {
-			newPet.fixed = false;
-			}
-			if ($('#petVaccination').prop('checked') == true) {
-				newPet.vaccination = true;
-			} else {
-				newPet.vaccination = false;
-			}
-			if ( $('#petGenderM').prop('checked') == true) {
-				newPet.gender = 'male';
-			} else {
-				newPet.gender = 'female';
-			}
-			newPet.type = $('#petType').val();
-			newPet.owner = $('#ownerName').val().toLowerCase()
-			$.ajax({
-	    		method: 'POST',
-	    		url: '/api/pets',
-	    		data: newPet,
-	    		succes: console.log('hooray'),
-	    		error: newPetError
-	    	})
-	    	console.log("New Animal");
-		});
+        })
 
 
-	    $('#isNotOwner').on('click', function(e) {
-			e.preventDefault();
-			//if owner is not registered, new Owner modal appears
-			$('#choiceModal').toggle();
-			$('#newOwner').modal();
+        $('#addThePet').on('click', function(e) {
+            console.log("all the buttons")
+            e.preventDefault();
+            //pet info added and submitted
+            if ($('#newPetName').val()=="") {
+                alert('please enter valid name for pet')
+            } else if ($('#petPicture').val() == "") {
+                alert('picture is not valid. please enter url for picture')
+            } else if ($('#petAge').val() == "") {
+                alert ('Not a valid age')
+            } else {
 
-		})
-	    $('#addTheOwner').on('click', function(e) {
-	    	e.preventDefault();
-	    	//after owner enters personal info, can click onto add pet
-	    newOwner.name = $('#newOwnerName').val();
-			newOwner.email = $('#newOwnerEmail').val();
-			newOwner.location = $('#newOwnerLocation').val();
-			console.log(newOwner)
-	    	$('#newOwner').toggle();
-	    	$('#newPet').modal();
-	    	$.ajax({
-	    		method: 'POST',
-	    		url: '/api/owners',
-	    		data: newOwner,
-	    		success: newOwnerSuccess,
-	    		error: newOwnerError
-	    	})
-	    })
+                newPet.name = $('#newPetName').val();
+                newPet.picture = $('#petPicture').val();
+                newPet.age = $('#petAge').val();
+                if ($('#petFixed').prop('checked') == true) {
+                newPet.fixed = true;
+                } else {
+                newPet.fixed = false;
+                }
+                if ($('#petVaccination').prop('checked') == true) {
+                    newPet.vaccination = true;
+                } else {
+                    newPet.vaccination = false;
+                }
+                if ( $('#petGenderM').prop('checked') == true) {
+                    newPet.gender = 'male';
+                } else if ($('#petGenderF').prop('checked') == true) {
+                    newPet.gender = 'female';
+                }
+                else {
+                    alert('please choose a gender')
+                    return
+                }
+                $('#newPet').toggle();
+                newPet.type = $('#petType').val();
+                $.ajax({
+                    method: 'POST',
+                    url: '/api/pets',
+                    data: newPet,
+                    success: newPetSuccess,
+                    error: newPetError
+                })
+                console.log("New Animal");
+
+            }
+        });
+
+
+        $('#isNotOwner').on('click', function(e) {
+            e.preventDefault();
+            //if owner is not registered, new Owner modal appears
+            $('#choiceModal').toggle();
+            $('#newOwner').modal();
+
+        })
+        $('#addTheOwner').on('click', function(e) {
+            e.preventDefault();
+            //after owner enters personal info, can click onto add pet
+            if ($('#newOwnerName') == "") {
+                alert('Please enter a name')
+            } else {
+                newOwner.name = $('#newOwnerName').val();
+            }
+            if ($('#newOwnerEmail') == "") {
+                alert('Please enter an email')
+            } else {
+                newOwner.name = $('#newOwnerEmail').val();
+            }
+            if ($('#newOwnerLocation') == "") {
+                alert('Please enter a location')
+            } else {
+                newOwner.name = $('#newOwnerLocation').val();
+            }
+
+            newOwner.email = $('#newOwnerEmail').val();
+            newOwner.location = $('#newOwnerLocation').val();
+            newPet.owner = newOwner.name;
+            console.log(newOwner);
+            $('#newOwner').toggle();
+            $('#newPet').modal();
+            $.ajax({
+                method: 'POST',
+                url: '/api/owners',
+                data: newOwner,
+                success: newOwnerSuccess,
+                error: newOwnerError
+            })
+        })
 
 	// CLICK TO DELETE PET
 	$('#pets').on('click', '.delete-pet', function(e) {
