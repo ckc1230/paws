@@ -91,6 +91,15 @@ app.post('/api/pets', function(req, res) {
  //  	});
 });
 
+app.post('/api/pets/interested/:interested', function(err,pet) {
+	if (err) {console.log(err) }
+		findById({_id: req.params._id}, function(err, pet) {
+			pet.interested = pet.interested + 1;
+		})
+	console.log(pet.interested);
+	}
+})
+
 app.post('/api/owners', function(req,res) {
 	db.Owner.create(req.body, function(err, owner) {
 		if (err) { console.log('nice try');}
