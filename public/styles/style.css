@@ -1,3 +1,11 @@
+body {
+  background-color: #BFBEBD;
+}
+
+h2 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
 h1 {
   font-family: 'Fjalla One', sans-serif;
   display: inline-block;
@@ -110,7 +118,7 @@ ul.topnav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #403F3F;
 }
 
 /* Float the list items side by side */
