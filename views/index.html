@@ -121,8 +121,6 @@
                             <input class="form-control input-md" type="text" name="edit-pet-name" value="{{name}}" id="editNameField">
                             <label class="col-md-4 control-label no-left-padding" for="edit-pet-age">Age</label>
                             <input class="form-control input-md" type="text" name="edit-pet-age" value="{{age}}" id="editAgeField">
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-location">Location</label>
-                            <input class="form-control input-md" type="text" name="edit-pet-location" value="{{owner.location}}" id="editLocationField"> <br>
                             <label class="col-md-4 control-label" for="petMedical">Medical</label>
                             <div class="col-md-4">
                             <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed
@@ -132,6 +130,15 @@
                             <label class="col-md-4 control-label no-left-padding" for="edit-pet-description">Description</label>
                             <textarea class="form-control input-md" id="editDescriptionField"> </textarea>
                           </div>
+
+                          <div hidden="true" class="edit-form2">
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-location">Location</label>
+                            <input class="form-control input-md" type="text" name="edit-pet-location" value="{{owner.location}}" id="editLocationField"> <br>
+
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-email">Email</label>
+                            <input class="form-control input-md" type="text" name="edit-pet-email" value="{{owner.email}}" id="editEmailField"> <br>
+                          </div>
+
                         </li>
 
                       </ul>
@@ -144,6 +151,7 @@
                     <div class='panel-footer'>
                       <button class='btn btn-primary delete-pet'>Delete Pet</button>
                       <button class='btn btn-primary edit-pet'>Edit Pet</button>
+                      <button class='btn btn-primary edit-owner' style='display:none;'>More...</button>
                       <button class='btn btn-primary save-changes' style='display:none;'>Save Changes</button>
                     </div>
                   </div>

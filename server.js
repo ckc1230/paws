@@ -39,6 +39,17 @@ app.get('/api/owners/:id', function show(req, res) {
 	});
 });
 
+app.put('/api/owners/:id', function put(req, res) {
+	var updatedOwner = req.body;
+	var ownerId = req.params.id;
+	db.Owner.findOneAndUpdate({_id: ownerId}, updatedOwner, {new: true}, function(err,foundOwner) {
+		if (err) {throw err};
+		console.log(foundOwner);
+		foundOwner.save();
+		res.json(foundOwner);
+	});
+})
+
 // Get All Pets
 app.get('/api/pets', function index(req, res) {
 	db.Pet.find().populate('owner')

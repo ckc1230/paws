@@ -15,6 +15,9 @@ var newOwner = {
 }
 allPets = []
 
+var ownerId = "";
+var updatedPet = {};
+
 $(document).ready(function() {
 	console.log("here come the kittens");
 
@@ -35,19 +38,20 @@ $('#pets').on('click', '.edit-pet',function(e) {
 			var $petRow = getPetRowById(petId);
 
 			$petRow.find('.original-form').toggle();
+			$petRow.find('.delete-pet').toggle();
     	$petRow.find('.edit-form').toggle();
 	    $petRow.find('.edit-pet').toggle();
-	    $petRow.find('.save-changes').toggle();
+	    $petRow.find('.edit-owner').toggle();
+	    // $petRow.find('.save-changes').toggle();
 })
 
-
-$('#pets').on('click', '.save-changes', function(e) {
+$('#pets').on('click', '.edit-owner', function(e) {
 	e.preventDefault();
 	var petId = $(this).parents('.pet').data('pet-id');
 	// var petId = $(this).closest('.pet').attr('data-pet-id');
 	var $petRow = getPetRowById(petId);
-	$petRow.find('.original-form').toggle();
-	$petRow.find('.edit-form').toggle();
+	// $petRow.find('.original-form').toggle();
+	// $petRow.find('.edit-form').toggle();
   $petRow.find('.edit-pet').toggle();
   $petRow.find('.save-changes').toggle();
 
@@ -64,9 +68,51 @@ $('#pets').on('click', '.save-changes', function(e) {
   	url: '/api/pets/' + petId,
   	data: petData,
   	success: function(data) {
-				// renderPet(pet);
+  		$petRow.find('.edit-form').toggle();
+  		$petRow.find('.edit-form2').toggle();
+      $petRow.find('.edit-pet').toggle();
+			$petRow.find('.edit-owner').toggle();
+
+			ownerId = data.owner;
+			updatedPet = data;
+
+
+			// $petRow.empty();
+   // 		$petRow.append(reRenderPet(data));
+		}
+	});
+})
+
+
+
+
+$('#pets').on('click', '.save-changes', function(e) {
+	e.preventDefault();
+	var petId = $(this).parents('.pet').data('pet-id');
+	// var petId = $(this).closest('.pet').attr('data-pet-id');
+	var $petRow = getPetRowById(petId);
+	$petRow.find('.edit-form').toggle();
+  $petRow.find('.edit-pet').toggle();
+	$petRow.find('.original-form').toggle();
+  $petRow.find('.save-changes').toggle();
+
+  var ownerData = {
+    location: $petRow.find('input[name="edit-pet-location"]').val(),
+    email: $petRow.find('input[name="edit-pet-email"]').val(),
+  };
+
+  console.log("Before server: " + ownerData);
+  console.log("Owner ID: " + ownerId);
+  
+  $.ajax({
+  	method: 'PUT',
+  	url: '/api/owners/' + ownerId,
+  	data: ownerData,
+  	success: function(data) {
+  		updatedPet.owner = data;
+   		console.log(data);
 			$petRow.empty();
-   		$petRow.append(reRenderPet(data));
+   		$petRow.append(reRenderPet(updatedPet));
 		}
 	});
 })
