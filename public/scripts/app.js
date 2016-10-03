@@ -319,8 +319,27 @@ $('#search-button').on('click', function(e) {
 });
 
 $('#pets').on('click', '.like-pet', function(e) {
+
+	$('.like-pet').css('display', 'none')
 	console.log("LIKE!!!!");
-});
+	var likedPetId = $(this).closest('.pet').attr('data-pet-id');
+	//send a request to route patch to show page of animal
+	var likedPet = $(this).closest('.pet');
+	var $petRow = (getPetRowById(likedPetId))
+	console.log(likedPetId);
+	$.ajax({
+		method: 'PATCH',
+		url: '/api/pets/' + likedPetId,
+		success: function moreLike(pet) {
+			console.log(pet.interested);
+			$petRow.empty();
+			$petRow.append(reRenderPet(pet));
+			$('.like-pet').css('display', 'none')
+			},
+		error: noLike
+	})
+
+  });
 
 	// CLICK TO OPEN HAMBURGER MENU
 	$('.icon').on('click', function() {
@@ -415,4 +434,7 @@ function newPetSuccess(data) {
 
 function newPetError() {
 	console.log('rejected');
+}
+function noLike() {
+	console.log('no one likes you')
 }
