@@ -111,26 +111,15 @@ app.delete('/api/pets/:id', function destroy(req,res) {
 	});
 });
 
-// // Update Pet
-// app.put('/api/pets/:id', function update(req,res) {
-// 	var updatedPet = req.body;
-// 	var petId = req.params.id;
-// 	db.Pet.findOneAndUpdate(petId, updatedPet, function(err, foundPet) {
-// 		if (err) {throw err};
-// 		foundPet.save();
-// 		res.json(foundPet);
-// 	});
-// });
-
 // Search Pet Name
-// app.get('/api/pets/name/:name', function nameSearch(req, res) {
-// 	var petName = req.params.name;
-// 	console.log(petName);
-// 	db.Pet.find({ name: petName}, function(err, pet) {
-// 		if (err) { console.log(err); };
-// 		res.json(pet);
-// 	});
-// });
+app.get('/api/pets/name/:name', function nameSearch(req, res) {
+	console.log(req.params.name);
+	db.Pet.find({ name: req.params.name }, function(err, pet) {
+		if (err) { console.log(err); };
+		console.log(pet);
+		res.json(pet);
+	});
+});
 
 //server
 app.listen(process.env.PORT || 8000, function() {
