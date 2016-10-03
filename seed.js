@@ -99,7 +99,10 @@ petList.push({
 	fixed: false,
 	gender: "male",
 	picture: "http://www.mrjohnsons.co.uk/uploads/small/copy_hamster_nutc.jpg",
-	owner: "greg"
+	owner: "greg",
+	description: "ironically, ‘peanut the hamster’ does not like peanuts! " + 
+	"he actually despises peanuts and demolishes them purely to display his dominance. " + 
+	"some of his favorite activities include: running on his wheel and sleeping amongst the shell of his adversary - the peanut."
 });
 
 petList.push({
@@ -111,7 +114,10 @@ petList.push({
 	fixed: true,
 	gender: "female",
 	picture: "http://1.bp.blogspot.com/-4LEQPEDj4IQ/UD6pwk3dwLI/AAAAAAAAAjI/mzmMLCC5P5U/s640/black-poodle-ch%2Bjaset's%2Bsatisfaction.jpg",
-	owner: "paws"
+	owner: "paws",
+	description: "this is a dog that barks at her own beat! " + 
+	"she is never shy and knows that she has your attention. " + 
+	"dj shades, md is a bit high maintenance, but you’ll know exactly which areas she’ll need blankets when winter rolls around."
 });
 
 petList.push({
@@ -123,7 +129,10 @@ petList.push({
 	fixed: true,
 	gender: "male",
  	picture: "https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s320x320/e15/11358034_1458243211142525_1167013190_n.jpg",
-	owner: "ilias"
+	owner: "ilias",
+	description: 'lil bow wow has nothing on big bow wow. ' + 
+	'this lovable giant is great with kids and great with young up-and-coming rappers. ' + 
+	'he also had a cameo in “the fast and the furious: tokyo drift”.'
 });
 
 petList.push({
