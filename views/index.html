@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PICK-A-PET</title>
+    <title>paws</title>
 
     <!-- STYLESHEETS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -24,9 +24,9 @@
     <div id="header">
       <!-- NAVIGATION -->
       <ul class="topnav" id="myTopnav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/profile">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/">home</a></li>
+        <li><a href="/profile">about</a></li>
+        <li><a href="#">contact</a></li>
         <li class="icon">
           <a href="javascript:void(0);">&#9776;</a>
         </li>
@@ -34,9 +34,9 @@
       <div class="jumbotron">
         <div class="container">
           <!-- LOGO, TITLE, HEADLINE -->
-          <img id="logo" src="http://i66.tinypic.com/2j5nx5c.png"/><h1>pickapet</h1>
-          <p>Find your new best friend&trade;</p>
-          <button type="button" class="addPet">Add A Pet</button>
+          <h1>paws(<img id="logo" src="http://i66.tinypic.com/2j5nx5c.png"/>)</h1>
+          <p>find your new best friend&trade;</p>
+          <button type="button" class="addPet">add a pet</button>
         </div>
       </div>
   </div>
@@ -48,7 +48,7 @@
           <!-- SEARCH BY NAME -->
           <div class="custom-search-input">
             <div class="input-group col-md-12">
-                <input type="text" class="form-control input-lg" name="name-search" id="search-query" placeholder="Search by name" />
+                <input type="text" class="form-control input-lg" name="name-search" id="search-query" placeholder="search by name" />
                 <span class="input-group-btn">
                   <button class="btn btn-info btn-lg" type="button" id="search-button">
                     <i class="glyphicon glyphicon-search"></i>
@@ -96,9 +96,9 @@
                           <h4 class='inline-header'>{{name}}, {{age}} {{gender}} <span style="font-size: 12px">{{owner.location}}</span></h4>
                           <span class='pet-description'>Description goes here</span></br>
                           <span class='pet-medical'>
-                            <span id="fixed">Fixed: {{fixed}}</span> <span id="vaccination">Vaccinations: {{vaccination}}</span>
+                            <span id="fixed">fixed: {{fixed}}</span> <span id="vaccination">vaccinations: {{vaccination}}</span>
                           </span></br>
-                          <span id="owned-by">Owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
+                          <span id="owned-by">owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
                           </br>
                           <span id="interest-count">{{likes}} people interested in me</span>
                           <span class='input-pet-name' style='display:none;'>
@@ -114,9 +114,9 @@
 
                   <div class='panel-footer'>
                     <div class='panel-footer'>
-                      <button class='btn btn-primary delete-pet'>Delete Pet</button>
-                      <button class='btn btn-primary edit-pet'>Edit Pet</button>
-                      <button class='btn btn-primary save-changes' style='display:none;'>Save Changes</button>
+                      <button class='btn btn-primary delete-pet'>delete pet</button>
+                      <button class='btn btn-primary edit-pet'>edit pet</button>
+                      <button class='btn btn-primary save-changes' style='display:none;'>save changes</button>
                       <button class='btn btn-primary like-pet'>&hearts; {{interested}}</button>
                     </div>
                   </div>
@@ -138,15 +138,15 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Post A Pet</h4>
+            <h4 class="modal-title">post a pet</h4>
           </div>
           <div class="modal-body">
             <fieldset class='form-horizontal'>
-            <h3>Are you a registered owner?</h3>
+            <h3>are you a registered owner?</h3>
             </fieldset>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" id="isOwner">Yes</button>
-            <button type="button" class="btn btn-primary" id="isNotOwner">No</button>
+            <button type="button" class="btn btn-default" id="isOwner">yes</button>
+            <button type="button" class="btn btn-primary" id="isNotOwner">no</button>
           </div>
         </div>
       </div>
@@ -160,20 +160,20 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Post A Pet</h4>
+          <h4 class="modal-title">post a pet</h4>
         </div>
         <div class="modal-body">
           <fieldset class='form-horizontal'>
-          <h3>Please Enter Your First Name</h3>
+          <h3>please enter your first name</h3>
           <div class="form-group">
-            <label class="col-md-4 control-label" for="ownerName">Name</label>
+            <label class="col-md-4 control-label" for="ownerName">name</label>
           <div class="col-md-4">
           <input id="ownerName" name="ownerName" type="text" placeholder="Ilias" class="form-control input-md" required="">
           </div>
         </div>
           </fieldset>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-default" id="registeredName">Submit</button>
+          <button type="submit" class="btn btn-default" id="registeredName">submit</button>
         </div>
       </div>
     </div>
@@ -185,14 +185,14 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Post A Pet</h4>
+            <h4 class="modal-title">post a pet</h4>
           </div>
           <div class="modal-body">
-          <h3>Owner Information</h3>
+          <h3>owner information</h3>
 
             <!-- Owner name input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="ownerName">Name</label>
+              <label class="col-md-4 control-label" for="ownerName">name</label>
               <div class="col-md-4">
               <input id="newOwnerName" name="ownerName" type="text" placeholder="John Smith" class="form-control input-md" required="">
               </div>
@@ -208,7 +208,7 @@
 
             <!-- Owner email input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="ownerEmail">Email</label>
+              <label class="col-md-4 control-label" for="ownerEmail">email</label>
               <div class="col-md-4">
               <input id="newOwnerEmail" name="ownerEmail" type="text" placeholder="mail@example.com" class="form-control input-md" required="">
               </div>
@@ -217,8 +217,8 @@
             </fieldset>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" id="addTheOwner">Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+            <button type="button" class="btn btn-primary" id="addTheOwner">submit</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -229,23 +229,23 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Post A Pet</h4>
+            <h4 class="modal-title">post a pet</h4>
           </div>
           <div class="modal-body">
 
             <fieldset class='form-horizontal'>
-            <h3>Pet Information</h3>
+            <h3>pet information</h3>
             <!-- Pet name input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="petName">Pet Name</label>
+              <label class="col-md-4 control-label" for="petName">pet name</label>
               <div class="col-md-4">
-              <input id="newPetName" name="petName" type="text" placeholder="Squeaky McSqueaks" class="form-control input-md" required="">
+              <input id="newPetName" name="petName" type="text" placeholder="squeaky mcsqueaks" class="form-control input-md" required="">
               </div>
             </div>
 
             <!-- Pet type input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="petType">Pet Type</label>
+              <label class="col-md-4 control-label" for="petType">pet type</label>
               <div class="col-md-4">
               <select id="petType" name="petType" class="form-control input-md">
                 <option value="dog">dog</option>
@@ -259,7 +259,7 @@
 
             <!-- Pet age input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="petAge">Age</label>
+              <label class="col-md-4 control-label" for="petAge">age</label>
               <div class="col-md-4">
               <input id="petAge" name="petAge" type="text" placeholder="3 months" class="form-control input-md" required="">
 
@@ -268,26 +268,26 @@
 
             <!-- Pet gender input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="petGender">Gender</label>
+              <label class="col-md-4 control-label" for="petGender">gender</label>
               <div class="col-md-4">
 
               <label class="petGender">
-              <input id="petGenderM" type="radio" name="petGender" value="male" class=""> Male </label><label><input id="petGenderF" type="radio" name="petGender" value="female" class=""> Female</label>
+              <input id="petGenderM" type="radio" name="petGender" value="male" class=""> male </label><label><input id="petGenderF" type="radio" name="petGender" value="female" class=""> female</label>
               </div>
             </div>
 
             <!-- Pet fixed/vaccination input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="petMedical">Medical</label>
+              <label class="col-md-4 control-label" for="petMedical">medical</label>
               <div class="col-md-4">
-              <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed
-              <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> Vaccinations
+              <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> fixed
+              <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> vaccinations
               </div>
             </div>
 
             <!-- Pet image input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="petPicture">Image</label>
+              <label class="col-md-4 control-label" for="petPicture">image url</label>
               <div class="col-md-4">
               <input id="petPicture" name="petPicture" type="text" placeholder="http://image.jpg" class="form-control input-md" required="">
               </div>
@@ -297,8 +297,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" id="addThePet">Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+            <button type="button" class="btn btn-primary" id="addThePet">submit</button>
 
           </div>
         </div><!-- /.modal-content -->
