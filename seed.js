@@ -294,6 +294,12 @@ ownerList.push({
 	location: '255 Busch Street'
 });
 
+ownerList.push({
+	name: "Dani",
+	email: "dani@spiritualawakenings.com",
+	location: "Alameda, CA"
+});
+
 db.Pet.remove({}, function(err, pets){
   petList.forEach(function (petData) {
     var pet = new db.Pet({
@@ -320,7 +326,7 @@ db.Pet.remove({}, function(err, pets){
     });
   });
 })
- 
+
 
 db.Owner.remove({}, function(err, owners){
 	db.Owner.create(ownerList, function(err, owners){
@@ -329,5 +335,3 @@ db.Owner.remove({}, function(err, owners){
 		console.log('created', ownerList.length, 'owners');
 	});
 })
-
-
