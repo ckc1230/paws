@@ -53,6 +53,18 @@ app.get('/api/owners/:id', function show(req, res) {
 	});
 });
 
+// Update One Owner
+app.put('/api/owners/:id', function put(req, res) {
+	var updatedOwner = req.body;
+	var ownerId = req.params.id;
+	db.Owner.findOneAndUpdate({_id: ownerId}, updatedOwner, {new: true}, function(err,foundOwner) {
+		if (err) {throw err};
+		console.log(foundOwner);
+		foundOwner.save();
+		res.json(foundOwner);
+	});
+})
+
 // Get All Pets
 app.get('/api/pets', function index(req, res) {
 	db.Pet.find().populate('owner')
@@ -71,7 +83,6 @@ app.get('/api/pets/:id', function show(req, res) {
 		res.json(pet);
 	});
 });
-
 
 // Create Pet
 app.post('/api/pets', function(req, res) {
@@ -112,6 +123,19 @@ app.delete('/api/pets/:id', function destroy(req,res) {
 	});
 });
 
+// Update pet
+app.put('/api/pets/:id', function update(req,res) {
+	var updatedPet = req.body;
+	var petId = req.params.id;
+	console.log("petId found: " + petId);
+	db.Pet.findOneAndUpdate({_id: petId}, updatedPet, {new: true}, function(err,foundPet) {
+		if (err) {throw err};
+		console.log(foundPet);
+		foundPet.save();
+		res.json(foundPet);
+	});
+});	 
+	
 // Search Pet Name
 app.get('/api/pets/name/:name', function nameSearch(req, res) {
 	console.log(req.params.name);
@@ -121,6 +145,27 @@ app.get('/api/pets/name/:name', function nameSearch(req, res) {
 		res.json(pet);
 	});
 });
+	 
+// Search by pet type
+	 
+// Get all dogs or cats
+app.get('/api/pets/type/:type', function show(req, res) {
+	var petType = req.params.type;
+	console.log(petType);
+	db.Pet.find({ type: petType }, function(err, pet) {
+		if (err) {throw err;};
+		res.json(pet);
+	});
+});
+
+// Get all others
+app.get('/api/pets/search/other', function show(req, res) {
+	db.Pet.find({ type: { $nin: ['dog', 'cat'] } }, function(err, pet) {
+		if (err) {throw err;};
+		res.json(pet);
+	});
+});
+	 
 
 //server
 app.listen(process.env.PORT || 8000, function() {
