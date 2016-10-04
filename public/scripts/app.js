@@ -410,7 +410,7 @@ function newOwnerError() {
 function newPetSuccess(data) {
 	if (data == "No") {
 		alert('Not valid user');
-		$('#choiceModal').modal();
+		$('#choiceModal').toggle();
 	}
 	else {
 		console.log('hooray');
