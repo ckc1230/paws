@@ -13,12 +13,19 @@ On the other hand, if a user wishes to list his or her pet for adoption, he or s
 
 > **See the published project on [Heroku](https://aqueous-atoll-30376.herokuapp.com/).**
 
+<p><i>The original wireframes for the profile card created with Moqups</i></p>
+<img src="http://i63.tinypic.com/jqkilk.png" width="400">
+<br>
+
 ## Technologies Used
 
-<li> JavaScript </li>
-<li> jQuery </li>
-<li> HTML </li>
-<li> CSS </li>
+- JavaScript
+- jQuery
+- HTML
+- CSS
+- AJAX
+- MongoDB
+- Bootstrap
 
 ## Screenshots
 
