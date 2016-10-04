@@ -20,3 +20,20 @@ On the other hand, if a user wishes to list his or her pet for adoption, he or s
 <li> CSS </li>
 
 ## Screenshots
+
+<p><i>Homepage view listing all pets currently available for adoption</i></p>
+<img src="http://i67.tinypic.com/24pje6e.png" width="500">
+<br>
+<p><i>Profile "card" listing name, age, gender, location, description, medical information, contact information, and how many people are interested</i></p>
+<img src="http://i64.tinypic.com/20h4hhk.png" width="500">
+<br>
+<p><i>Search by name</i></p>
+<img src="http://i64.tinypic.com/2nc41p1.png" width="500">
+<br>
+<p><i>Search by type (dog, cat, other)</i></p>
+<img src="http://i66.tinypic.com/2cdgw7l.png" width="500">
+<br>
+<p><i>Post a pet modal</i></p>
+<img src="http://i63.tinypic.com/2dr712p.png" width="500">
+<p><i>About us page</i></p>
+<img src="http://i67.tinypic.com/eqnt7a.png" width="500">
