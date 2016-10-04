@@ -20,7 +20,9 @@ var updatedPet = {};
 
 $(document).ready(function() {
 	console.log("here come the kittens");
-
+	
+	setStorage();
+	console.log(localStorage.getItem('clicked'))
 
 //get all pets as site turns on
 	$.get('/api/pets').success(function(pets) {
@@ -330,7 +332,7 @@ $('#pets').on('click', '.like-pet', function(e) {
 	console.log('like');
 	console.log((localStorage.getItem('clicked')))
 	if (localStorage.getItem('clicked') == 'false') {
-		localStorage.clear();
+		localStorage.setItem('clicked','not null');
 		// console.log("LIKE!!!!");
 		var likedPetId = $(this).closest('.pet').attr('data-pet-id');
 		//send a request to route patch to show page of animal
