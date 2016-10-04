@@ -111,7 +111,7 @@ app.post('/api/pets', function(req, res) {
 app.post('/api/owners', function(req, res) {
 	db.Owner.create(req.body, function(err, owner) {
 		if (err) { console.log('nice try');};
-		console.log('holy shit...');
+		console.log('it worked');
 		res.json(owner);
 	});
 });

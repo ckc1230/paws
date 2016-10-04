@@ -13,7 +13,7 @@ petList.push({
 	gender: "male",
 	picture: "https://scontent-yyz1-1.cdninstagram.com/t51.2885-15/e35/14128919_1090735680973847_1968720665_n.jpg?ig_cache_key=MTMzMzAwNjc5NzA2MTM1NTUxMQ%3D%3D.2",
 	owner: "ilias",
-	description: "There is little that needs to be said about Theo, the dog the legend. Not a soul enters GA that isn't affected by his charm and grace; his poise and intent. Anyone would be lucky to own such a dog and we're all stunned ilias is putting him up for adoption"
+	description: "there is little that needs to be said about theo, the dog the legend. not a soul enters GA that isn't affected by his charm and grace; his poise and intent. anyone would be lucky to own such a dog and we're all stunned ilias is putting him up for adoption"
 });
 
 petList.push({
@@ -26,7 +26,7 @@ petList.push({
 	gender: "female",
 	picture: "https://scontent-yyz1-1.cdninstagram.com/t51.2885-15/e35/14280350_175479136192510_3532240967484571648_n.jpg?ig_cache_key=MTM0NjAwODgxNzc3NDk2MTcyMw%3D%3D.2",
 	owner: "ilias",
-	description: 'Ruby is a dog who likes to have fun, and make emotional connections. She enjoys long walks on the beech and just sitting back with a friend and a beer'
+	description: 'ruby is a dog who likes to have fun, and make emotional connections. she enjoys long walks on the beech and just sitting back with a friend and a beer'
 });
 
 petList.push({
@@ -39,7 +39,7 @@ petList.push({
 	gender: "female",
 	picture: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/11949497_10153072748752727_3155146891262570335_n.jpg?oh=764c714d8d3d33d10ea070c1ea3a9466&oe=5875EFAF',
 	owner: "noah",
-	description: 'Maggie lives in hipster brooklyn and has truely embraced the culture. She eats the fanciest of foods and enjoys playing with technology, especially if it feeds her'
+	description: 'maggie lives in hipster brooklyn and has truely embraced the culture. she eats the fanciest of foods and enjoys playing with technology, especially if it feeds her'
 });
 
 petList.push({
@@ -52,7 +52,7 @@ petList.push({
 	gender: "female",
 	picture: 'https://scontent-yyz1-1.xx.fbcdn.net/v/t1.0-0/p206x206/1238209_10201027775790085_100547095_n.jpg?oh=40f8930ac8693e44697d0b478a0a4a7c&oe=5868CE72',
 	owner: "jeff",
-	description: 'Louisa is a pretty girl, just ask her. She has the intelligence of a 5 year old and maturity of a 3 year old. She would be a wonderful addition to any family'
+	description: 'louisa is a pretty girl, just ask her. she has the intelligence of a 5 year old and maturity of a 3 year old. she would be a wonderful addition to any family'
 });
 
 petList.push({
@@ -65,7 +65,7 @@ petList.push({
 	gender: "male",
 	picture: 'http://www.bandofcats.com/wp-content/uploads/2011/06/funny-cats_93.jpg',
 	owner: "shirley",
-	description: 'Gus is the definition of a scare-dy cat. He has been known to flinch away from a mouse and let all the women cats bully him. take pity on him and welcome him into your home'
+	description: 'gus is the definition of a scare-dy cat. he has been known to flinch away from a mouse and let all the women cats bully him. take pity on him and welcome him into your home'
 });
 
 petList.push({
@@ -403,7 +403,6 @@ db.Pet.remove({}, function(err, pets){
         if (err) {
           return console.log(err);
         }
-        // console.log('saved' + savedPet.name + ' owned by ' + foundOwner.name);
       });
     });
   });
