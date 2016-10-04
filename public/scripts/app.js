@@ -327,27 +327,28 @@ $('#search-button').on('click', function(e) {
 });
 
 $('#pets').on('click', '.like-pet', function(e) {
-
-	$('.like-pet').css('display', 'none')
-	console.log("LIKE!!!!");
-	var likedPetId = $(this).closest('.pet').attr('data-pet-id');
-	//send a request to route patch to show page of animal
-	var likedPet = $(this).closest('.pet');
-	var $petRow = (getPetRowById(likedPetId))
-	console.log(likedPetId);
-	$.ajax({
-		method: 'PATCH',
-		url: '/api/pets/' + likedPetId,
-		success: function moreLike(pet) {
-			console.log(pet.interested);
-			$petRow.empty();
-			$petRow.append(reRenderPet(pet));
-			$('.like-pet').css('display', 'none')
-			},
-		error: noLike
-	})
-
-  });
+	console.log('like');
+	console.log((localStorage.getItem('clicked')))
+	if (localStorage.getItem('clicked') == 'false') {
+		localStorage.clear();
+		// console.log("LIKE!!!!");
+		var likedPetId = $(this).closest('.pet').attr('data-pet-id');
+		//send a request to route patch to show page of animal
+		var likedPet = $(this).closest('.pet');
+		var $petRow = (getPetRowById(likedPetId))
+		console.log(likedPetId);
+		$.ajax({
+			method: 'PATCH',
+			url: '/api/pets/' + likedPetId,
+			success: function moreLike(pet) {
+				console.log(pet.interested);
+				$petRow.empty();
+				$petRow.append(reRenderPet(pet));
+				},
+			error: noLike
+		})
+	}
+});
 
 	// CLICK TO OPEN HAMBURGER MENU
 	$('.icon').on('click', function() {
@@ -388,6 +389,11 @@ function postError() {
 	console.log("it's not gonna work")
 }
 
+function setStorage() {
+	if (localStorage.getItem('clicked') === null) {
+		localStorage.setItem('clicked','false')
+	}
+}
 
 function getPetRowById(id) {
   return $('[data-pet-id=' + id + ']');
@@ -396,9 +402,11 @@ function getPetRowById(id) {
 function newOwnerSuccess() {
 	console.log('yay new owner');
 }
+
 function newOwnerError() {
 	console.log('no owner');
 }
+
 function newPetSuccess(data) {
 	if (data == "No") {
 		alert('Not valid user');
