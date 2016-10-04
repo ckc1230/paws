@@ -6,7 +6,8 @@ var newPet = {
 	fixed: true,
 	gender: "",
 	picture: "",
-	owner: ""
+	owner: "",
+	description: ""
 }
 var newOwner = {
 	name: "",
@@ -129,12 +130,12 @@ $(document).ready(function() {
             if ($('#newOwnerEmail') == "") {
                 alert('Please enter an email')
             } else {
-                newOwner.name = $('#newOwnerEmail').val();
+                newOwner.email = $('#newOwnerEmail').val();
             }
             if ($('#newOwnerLocation') == "") {
                 alert('Please enter a location')
             } else {
-                newOwner.name = $('#newOwnerLocation').val();
+                newOwner.location = $('#newOwnerLocation').val();
             }
 
             newOwner.email = $('#newOwnerEmail').val();
@@ -378,7 +379,7 @@ function handleNewInput(data) {
 	var newPet = new Pet();
 	newPet.name = data.name;
 	newPet.type = petType.val();
-	newPet.owner.ref = data.ownerName;
+	newPet.owner = data.ownerName;
 	newPet.picture = data.picture
 	if ($('#petFixed').prop('checked') == true) {
 		newPet.fixed = true;

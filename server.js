@@ -86,23 +86,22 @@ app.get('/api/pets/:id', function show(req, res) {
 
 // Create Pet
 app.post('/api/pets', function(req, res) {
-	console.log(req.body.owner)
+	console.log(req.body.owner, "hello")
 	db.Owner.find({name: req.body.owner}, function(err,owner) {
 		if (owner == false) {
 			console.log('hell no');
 			res.send('No');
 		} else {
-			var ourOwner = owner._id;
-			console.log(req.body);
-			console.log(ourOwner);
-			var newPet = req.body;
-			newPet.owner = ourOwner;
-			console.log(newPet);
-			db.Pet.create(newPet, function(err, pet) {
-				if (err) { console.log('so close')}
-				res.json(pet);
-				pet.save()
-			})
+				console.log(owner)
+				var ourOwner = owner[0]._id
+				var newPet = req.body;
+				newPet.owner = ourOwner;
+				db.Pet.create(newPet, function(err, pet) {
+			if (err) { console.log('so close');}
+			res.json(pet);
+			pet.save()
+		})
+
 		}
 	})
 
