@@ -56,6 +56,12 @@ img {
   height: auto;
 }
 
+#interest-count {
+  color: #229954;
+  font-style: italic;
+  float: right;
+}
+
 /* SEARCH BAR */
 #custom-search-input{
     border: solid 1px #E4E4E4;
@@ -63,6 +69,10 @@ img {
     background-color: #fff;
     width: 200px;
     float: right;
+}
+
+.list-group-item {
+  height: auto;
 }
 
 #custom-search-input input{

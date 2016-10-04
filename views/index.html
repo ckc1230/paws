@@ -105,47 +105,47 @@
                             <h4 class='inline-header'> {{age}}, {{gender}} </h4> 
 
                           <span class='pet-description'>
-                              <h5 class='inline-header'>Description:</h5>
+                              <h5 class='inline-header'>description:</h5>
                               <p>{{description}}</p></span></br>
                           <span class='pet-medical'>
-                            <span id="fixed">Fixed: {{fixed}}</span> <span id="vaccination">Vaccinations: {{vaccination}}</span>
+                            <span id="fixed">fixed: {{fixed}}</span> <span id="vaccination">vaccinations: {{vaccination}}</span>
                           </span></br>
-                          <span id="owned-by">Owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
+                          <span id="owned-by">owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
                           <span class='input-pet-name' style='display:none;'>
                             <input id="petName" name="petName" type="text" value="{{name}}">
                           </span>
                              </br>
-                          <span id="interest-count">{{interested}} people interested in me</span>
+                          <span id="interest-count"><b>{{interested}} people interested in me</b></span>
                           <span class='input-pet-name' style='display:none;'>
                             <input id="petName" name="petName" type="text" value="{{name}}">
                           </span>
 
                         </div>
                           
-                          <!-- UPDATE FORM (HIDDEN) -->
+                         <!-- UPDATE FORM (HIDDEN) -->
 
                           <div hidden="true" class="edit-form">
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-name">Name</label>
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-name">name</label>
                             <input class="form-control input-md" type="text" name="edit-pet-name" value="{{name}}" id="editNameField">
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-age">Age</label>
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-age" style="margin-top: 3px;">age</label>
                             <input class="form-control input-md" type="text" name="edit-pet-age" value="{{age}}" id="editAgeField">
-                            <label class="col-md-4 control-label" for="petMedical">Medical</label>
-                            <div class="col-md-4">
-                            <input id="petFixed" type="checkbox" name="petFixed" value="fixed"> Fixed
-                            <input id="petVaccination" type="checkbox" name="petVaccination" value="vaccinations"> Vaccinations
-                            </div>
 
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-description">Description</label>
-                            <textarea class="form-control input-md" id="editDescriptionField"> </textarea>
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-description" style="margin-top: 3px;">description</label>
+                            <textarea class="form-control input-md" name="edit-pet-description">{{description}}</textarea>
+                            <label class="col-md-4 control-label" for="petMedical" style="margin-top: 5px;">medical</label>
+                            <div class="col-md-4">
+                            <input class="petFixedUpdate" type="checkbox" name="petFixed" style="margin-top: 5px;"> fixed
+                            <input class="petVaccinationUpdate" type="checkbox" name="petVaccination" style="margin-top: 5px;"> vaccinations
+                            </div>
                           </div>
 
                           <div hidden="true" class="edit-form2">
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-location">Location</label>
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-location">location</label>
                             <input class="form-control input-md" type="text" name="edit-pet-location" value="{{owner.location}}" id="editLocationField"> <br>
 
-                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-email">Email</label>
+                            <label class="col-md-4 control-label no-left-padding" for="edit-pet-email">email</label>
                             <input class="form-control input-md" type="email" name="edit-pet-email" value="{{owner.email}}" id="editEmailField"> <br>
-                          </div>        
+                          </div>       
                         </li>
 
                       </ul>

@@ -182,41 +182,55 @@ $('#pets').on('click', '.edit-pet',function(e) {
 })
 
 $('#pets').on('click', '.edit-owner', function(e) {
-	e.preventDefault();
-	var petId = $(this).parents('.pet').data('pet-id');
-	// var petId = $(this).closest('.pet').attr('data-pet-id');
-	var $petRow = getPetRowById(petId);
-	// $petRow.find('.original-form').toggle();
-	// $petRow.find('.edit-form').toggle();
+    e.preventDefault();
+    var petId = $(this).parents('.pet').data('pet-id');
+    var $petRow = getPetRowById(petId);
   $petRow.find('.edit-pet').toggle();
   $petRow.find('.save-changes').toggle();
 
-	var petLocation = $petRow.find('input[name="edit-pet-location"]').val();
-	console.log(petLocation);
+  var fixedCheck = $petRow.find('.petFixedUpdate');
+  var vaccinatedCheck = $petRow.find('.petVaccinationUpdate');
+
+  var fixed = true;
+  var vaccinated = true;
+
+    var petLocation = $petRow.find('input[name="edit-pet-location"]').val();
+    console.log(petLocation);
+
+    if (fixedCheck.prop('checked') == true) {
+            fixed = true;
+        } else {
+            fixed = false;
+        }
+    
+    if (vaccinatedCheck.prop('checked') == true) {
+            vaccinated = true;
+        } else {
+            vaccinated = false;
+        }
 
   var petData = {
-    name: $petRow.find('input[name="edit-pet-name"]').val(),
-    age: $petRow.find('input[name="edit-pet-age"]').val(),
+    name: ($petRow.find('input[name="edit-pet-name"]').val()).toLowerCase(),
+    age: ($petRow.find('input[name="edit-pet-age"]').val()).toLowerCase(),
+    vaccination: vaccinated,
+    fixed: fixed,
+    description: ($petRow.find('textarea[name="edit-pet-description"]').val()).toLowerCase()
   };
   
   $.ajax({
-  	method: 'PUT',
-  	url: '/api/pets/' + petId,
-  	data: petData,
-  	success: function(data) {
-  		$petRow.find('.edit-form').toggle();
-  		$petRow.find('.edit-form2').toggle();
+      method: 'PUT',
+      url: '/api/pets/' + petId,
+      data: petData,
+      success: function(data) {
+          $petRow.find('.edit-form').toggle();
+          $petRow.find('.edit-form2').toggle();
       $petRow.find('.edit-pet').toggle();
-			$petRow.find('.edit-owner').toggle();
+            $petRow.find('.edit-owner').toggle();
 
-			ownerId = data.owner;
-			updatedPet = data;
-
-
-			// $petRow.empty();
-   // 		$petRow.append(reRenderPet(data));
-		}
-	});
+            ownerId = data.owner;
+            updatedPet = data;
+        }
+    });
 })
 
 
