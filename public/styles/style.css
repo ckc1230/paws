@@ -175,6 +175,7 @@ ul.topnav li.icon {display: none;}
     }
     .col-xs-12 {
       padding-left: 1px;
+      border: none;
     }
     .inline-header span {
       display: block;
@@ -195,6 +196,7 @@ ul.topnav li.icon {display: none;}
     }
     .list-group-item {
       height: 150px;
+      border: none;
     }
     #about-section {
       margin: 10px;
