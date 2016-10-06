@@ -11,8 +11,8 @@ var PetSchema = new Schema({
 		type: Number,
 		default: 0
 	},
-	vaccination: Boolean,
-	fixed: Boolean,
+	vaccination: String,
+	fixed: String,
 	gender: String,
 	picture: String,
 	owner: {
