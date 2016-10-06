@@ -11,10 +11,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
@@ -107,7 +107,7 @@
                               <h5 class='inline-header'>description:</h5>
                               <p>{{description}}</p></span></br>
                             <span class='pet-medical'>
-                              <span id="fixed">fixed: {{fixed}}</span> <span id="vaccination">vaccinations: {{vaccination}}</span>
+                              <span id="fixed">fixed: <i class="{{fixed}}"></i></span> <span id="vaccination">vaccinations: <span class="{{vaccination}}"></span></span>
                             </span></br>
                             <span id="owned-by">owned by <a href='mailto:{{owner.email}}'>{{owner.name}}</a></span>
                               <span class='input-pet-name' style='display:none;'>
