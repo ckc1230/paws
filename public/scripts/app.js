@@ -267,10 +267,9 @@ $('#pets').on('click', '.save-changes', function(e) {
 	$('#drop-search').on('change', function() {
 		var selectedType = $('#drop-search :selected').val();
 		console.log(selectedType);
-		if (selectedType === 'dog') {
 			$.ajax({
 				method: 'GET',
-				url: '/api/pets/type/' + selectedType,
+				url: '/api/search?type=' + selectedType,
 				success: function(data) {
 					$(".pet").empty();
 					data.forEach(function(pet) {
@@ -278,47 +277,17 @@ $('#pets').on('click', '.save-changes', function(e) {
 					});
 				} 
 			})
-		} else if (selectedType === 'cat') {
-			$.ajax({
-				method: 'GET',
-				url: '/api/pets/type/' + selectedType,
-				success: function(data) {
-					$(".pet").empty();
-					data.forEach(function(pet) {
-					renderPet(pet);
-					});
-				} 
-			});
-		} else if (selectedType === 'other') {
-			$.ajax({
-				method: 'GET',
-				url: '/api/pets/search/other',
-				success: function(data) {
-					$(".pet").empty();
-					data.forEach(function(pet) {
-					renderPet(pet);
-					})
-				}
-			});
-		} else {
-				$(".pet").empty();
-				$.get('/api/pets').success(function(pets) {
-					pets.forEach(function(pet) {
-					renderPet(pet);
-					});
-				});
-			}
 		})
 
 
 // CLICK TO SEARCH PET NAME
 $('#search-button').on('click', function(e) {
 	e.preventDefault();
-	var petName = $('#search-query').val();
+	var petName = ($('#search-query').val()).toLowerCase();
 	console.log(petName);
 	$.ajax({
 		method: 'GET',
-		url: '/api/pets/name/' + petName,
+		url: '/api/namesearch?name=' + petName,
 		success: function(data) {
 			$('.pet').empty();
 			data.forEach(function(pet) {
