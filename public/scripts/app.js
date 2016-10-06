@@ -2,8 +2,8 @@ var newPet = {
 	name: "",
 	type: "" ,
 	age: "",
-	vaccination: true,
-	fixed: true,
+	vaccination: "",
+	fixed: "",
 	gender: "",
 	picture: "",
 	owner: "",
@@ -77,14 +77,14 @@ $(document).ready(function() {
             newPet.picture = $('#petPicture').val();
             newPet.age = $('#petAge').val();
             if ($('#petFixed').prop('checked') == true) {
-            	newPet.fixed = true;
+            	newPet.fixed = 'glyphicon glyphicon-ok';
             } else {
-            	newPet.fixed = false;
+            	newPet.fixed = 'glyphicon glyphicon-remove';
             }
             if ($('#petVaccination').prop('checked') == true) {
-                newPet.vaccination = true;
+                newPet.vaccination = 'glyphicon glyphicon-ok';
             } else {
-                newPet.vaccination = false;
+                newPet.vaccination = 'glyphicon glyphicon-remove';
             }
             if ( $('#petGenderM').prop('checked') == true) {
                 newPet.gender = 'male';
