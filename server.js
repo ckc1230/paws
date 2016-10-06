@@ -142,7 +142,8 @@ app.put('/api/pets/:id', function update(req,res) {
 app.patch('/api/pets/:id', function patch(req, res) {
 	var petId = req.params.id;
 	console.log(petId);
-	db.Pet.findById(petId, function(err, pet) {
+	db.Pet.findById(petId).populate('owner')
+	.exec(function(err, pet) {
 		if (err) {throw err; };
 		console.log(pet)
 		pet.interested = pet.interested + 1;
@@ -153,9 +154,11 @@ app.patch('/api/pets/:id', function patch(req, res) {
 })
 
 // Search Pet Name
-app.get('/api/pets/name/:name', function nameSearch(req, res) {
-	console.log(req.params.name);
-	db.Pet.find({ name: req.params.name }, function(err, pet) {
+app.get('/api/namesearch', function nameSearch(req, res) {
+	console.log(req.query.name);
+	var petName = req.query.name;
+	db.Pet.find({ name: petName }).populate('owner')
+	.exec(function (err, pet) {
 		if (err) { console.log(err); };
 		console.log(pet);
 		res.json(pet);
@@ -163,25 +166,24 @@ app.get('/api/pets/name/:name', function nameSearch(req, res) {
 });
 	 
 // Search by pet type
-	 
-// Get all dogs or cats
-app.get('/api/pets/type/:type', function show(req, res) {
-	var petType = req.params.type;
-	console.log(petType);
-	db.Pet.find({ type: petType }, function(err, pet) {
-		if (err) {throw err;};
-		res.json(pet);
-	});
-});
 
-// Get all others
-app.get('/api/pets/search/other', function show(req, res) {
-	db.Pet.find({ type: { $nin: ['dog', 'cat'] } }, function(err, pet) {
-		if (err) {throw err;};
-		res.json(pet);
-	});
+app.get('/api/search', function show(req, res) {
+	console.log(req.query);
+	if (req.query.type == 'all') {
+		db.Pet.find().populate('owner')
+        .exec(function(err, pet) {
+	        if (err) {console.log('WAAAHH')}
+	        res.json(pet); 
+    	});
+	} else {
+    	var petType = req.query.type;
+    	db.Pet.find({ type: petType }).populate('owner')
+        .exec(function(err, pet) {
+        	if (err) {console.log('WAAAHH')}
+        	res.json(pet); 
+    	});
+    }
 });
-	 
 
 //server
 app.listen(process.env.PORT || 8000, function() {
